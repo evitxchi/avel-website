@@ -392,10 +392,10 @@
     .footer-links a{display:block;width:max-content;margin-top:12px;color:#e4e6e8;font-size:11px}
     .footer-links a:hover{color:#fff}
     .footer-bottom{display:flex;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);color:#777b80;font-size:9px}
-    .footer-signature{position:relative;width:100%;height:clamp(120px,31vw,390px);margin:16px auto -20px;overflow:hidden;isolation:isolate}
-    .footer-signature img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.14}
-    .footer-signature:after{position:absolute;inset:0;background:linear-gradient(106deg,#5f646a 0%,#afb4ba 26%,#f4f5f6 43%,#aab0b7 51%,#5e6369 68%,#d4d8dc 84%,#747a80 100%);background-size:230% 100%;background-position:100% 50%;content:"";-webkit-mask:url("/assets/avel-wordmark.png") center/contain no-repeat;mask:url("/assets/avel-wordmark.png") center/contain no-repeat;filter:drop-shadow(0 0 9px rgba(213,219,225,.1));animation:footer-logo-glint 10s ease-in-out infinite}
-    @keyframes footer-logo-glint{0%,12%{background-position:100% 50%;opacity:.18;filter:brightness(.82) drop-shadow(0 0 5px rgba(213,219,225,.08))}46%{opacity:.46}62%,100%{background-position:0% 50%;opacity:.22;filter:brightness(1.16) drop-shadow(0 0 13px rgba(213,219,225,.24))}}
+    .footer-signature{position:relative;width:100%;height:clamp(150px,35vw,470px);margin:16px auto -20px;overflow:hidden;isolation:isolate}
+    .footer-signature img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.19;transform:scale(1.22)}
+    .footer-signature:after{position:absolute;inset:0;background:linear-gradient(106deg,#747a81 0%,#c2c7cd 20%,#f4f6f8 35%,#fff 43%,#e6e9ec 49%,#aeb4bb 59%,#747a81 72%,#e1e4e8 88%,#92989f 100%);background-size:260% 100%;background-position:125% 50%;content:"";-webkit-mask:url("/assets/avel-wordmark.png") center/122% auto no-repeat;mask:url("/assets/avel-wordmark.png") center/122% auto no-repeat;filter:drop-shadow(0 0 12px rgba(213,219,225,.2));animation:footer-logo-glint 8s ease-in-out infinite}
+    @keyframes footer-logo-glint{0%,10%{background-position:125% 50%;opacity:.34;filter:brightness(.9) drop-shadow(0 0 8px rgba(213,219,225,.13))}44%{opacity:.72}58%{background-position:48% 50%;opacity:.98;filter:brightness(1.36) drop-shadow(0 0 24px rgba(225,231,237,.48))}76%{opacity:.72}100%{background-position:-25% 50%;opacity:.34;filter:brightness(.96) drop-shadow(0 0 12px rgba(213,219,225,.2))}}
     [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity 1s var(--ease),transform 1.15s var(--ease)}
     [data-reveal].in-view{opacity:1;transform:translateY(0)}
     @media(max-width:1120px){
@@ -548,7 +548,7 @@
       .footer-links a{font-size:10px}
       .footer-bottom{gap:18px;font-size:8px}
       .footer-bottom span:last-child{text-align:right}
-      .footer-signature{height:clamp(110px,33vw,190px);margin-top:12px}
+      .footer-signature{height:clamp(130px,42vw,230px);margin-top:12px}
     }
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
