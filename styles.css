@@ -284,7 +284,7 @@
     .visual-head span{color:#888c91;font-size:9px}
     .agents-visual-body{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;padding:0}
     .agent-mini{position:relative;isolation:isolate;min-width:0;min-height:176px;overflow:hidden;border:1px solid #e1e3e5;border-radius:15px;background:#fff;box-shadow:0 8px 24px rgba(15,18,21,.07)}
-    .agent-mini:before{position:absolute;z-index:0;top:0;right:0;left:0;height:70px;content:"";background-image:radial-gradient(ellipse at 22% 4%,rgba(255,255,255,.28),transparent 56%),var(--agent-gradient);background-size:170% 190%,240% 220%;background-position:0% 18%,0% 46%;filter:saturate(1.42) contrast(1.03);animation:agent-gradient-drift 11s cubic-bezier(.45,0,.35,1) infinite alternate}
+    .agent-mini:before{position:absolute;z-index:0;top:0;right:0;left:0;height:70px;content:"";background-image:radial-gradient(ellipse at 22% 4%,rgba(255,255,255,.17),transparent 56%),var(--agent-gradient);background-size:170% 190%,240% 220%;background-position:0% 18%,0% 46%;filter:saturate(.9) contrast(1.02);animation:agent-gradient-drift 16s cubic-bezier(.45,0,.35,1) infinite alternate}
     .agent-mini:nth-child(2):before{animation-delay:-3.2s}
     .agent-mini:nth-child(3):before{animation-delay:-6.4s}
     .agent-mini:nth-child(4):before{animation-delay:-8.8s}
