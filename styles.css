@@ -244,6 +244,7 @@
     .calculator:before{position:absolute;inset:0;content:"";background:radial-gradient(ellipse at 50% 0%,rgba(214,217,220,.22),transparent 44%),linear-gradient(130deg,#080909,#17191b 52%,#050505)}
     .calculator:after{position:absolute;top:0;right:0;bottom:0;left:0;content:"";background:linear-gradient(116deg,transparent 38%,rgba(255,255,255,.13) 50%,transparent 62%);background-size:250% 100%;animation:silver-glint 16s ease-in-out infinite}
     .calculator-inner{position:relative;z-index:1;width:min(760px,calc(100% - 44px));margin:auto;text-align:center}
+    .calculator-inner>.eyebrow{margin-inline:auto}
     .calculator h2{max-width:710px;margin:20px auto 0;font-size:clamp(39px,5vw,65px);line-height:1.08;font-weight:400;letter-spacing:-.05em}
     .calculator-intro{max-width:515px;margin:18px auto 0;color:#c6c9cc;font-size:14px;line-height:1.65}
     .trip-card{margin-top:37px;padding:23px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(255,255,255,.055);text-align:left;backdrop-filter:blur(14px)}
@@ -340,9 +341,9 @@
     .setup-connect-action,.setup-add-action{display:flex;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:34px;padding:7px 8px;border:1px solid #c9ced6;border-radius:10px;background:rgba(255,255,255,.48);color:#555d66;font-size:9px;font-weight:500;text-align:center}
     .setup-connect-action{background:rgba(255,255,255,.74);color:#22262a}
     .setup-connect-action svg,.setup-add-action svg{width:13px;height:13px;flex:none;stroke-width:1.8}
-    .setup-system-add{display:flex;align-items:center;gap:7px;padding:9px}
-    .setup-system-add strong{flex:1;min-width:0;color:#202225;font-size:9px;font-weight:550}
-    .setup-system-add>a{flex:none;color:#626a73;font-size:8px}
+    .setup-system-add{display:flex;align-items:center;gap:5px;padding:8px}
+    .setup-system-add strong{flex:1;min-width:0;color:#202225;font-size:8px;line-height:1.2;font-weight:550}
+    .setup-system-add .setup-dark-action{min-height:25px;padding:0 5px;border-radius:7px;font-size:7px}
     .setup-core-card{grid-area:core;display:flex;flex-direction:column;align-items:stretch;padding:13px 12px 12px;border:1px solid #d7dbe2;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,0) 38%),linear-gradient(135deg,#fbfbfc 0%,#eceef2 42%,#f6f7f9 58%,#dfe3e8 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 #c2c8d1,0 12px 30px rgba(16,24,40,.08);text-align:center}
     .setup-core-orb{display:grid;place-items:center;width:100%;aspect-ratio:1.55;border:1px solid #d7dbe2;border-radius:13px;background:linear-gradient(160deg,#f6f7f9,#e2e5ea 55%,#eceef2);box-shadow:inset 0 1px 0 #fff,inset 0 -10px 24px rgba(16,24,40,.05)}
     .setup-core-orb>span{display:grid;place-items:center;width:66px;height:66px}
