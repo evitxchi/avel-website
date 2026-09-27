@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "9afbf5e0-a3f9-4e51-8dfd-7ccb5f001280",
+      "activeDraftId": "a70626fb-ff5a-4090-aad6-987185f39e3f",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "a336f8e9-1323-45eb-8b1b-9a4e3ef968f5",
+        "c230d1a1-dc7a-439b-a0f6-d936bc077043",
+        "d309ddc1-6bbb-47bb-be02-3e6356c09492",
+        "1989efd1-3df8-4130-8a91-065412c5d35f",
+        "c7270404-7891-4363-b441-833d94d5255f",
+        "avel-logo-black",
+        "avel-logo-white",
+        "avel-yd-gothic-130-pro",
+        "avel-icon-black"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "avel-logo-black",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/9afbf5e0-a3f9-4e51-8dfd-7ccb5f001280/brand-assets/avel-logo-black/avel-logo.png"
+        },
+        "icon": {
+          "assetKey": "avel-icon-black",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/9afbf5e0-a3f9-4e51-8dfd-7ccb5f001280/brand-assets/avel-icon-black/ChatGPT_Image_Sep_22__2026__02_52_44_PM.png"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        ".superdesign/avel-product-context.md",
+        "index.html",
+        "styles.css",
+        "main.js"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "6c77f66e0829c0a99a3a99195eeada8f00ccfd7b32b0f77f5e8b182a50ff148e",
+        ".superdesign/avel-product-context.md": "46388d82a2dcc9540e6acc82e4972da007c6b6df3be71f3eaf369d957ad0b1b3",
+        "index.html": "b9fea46064d0834c784918fdc0f87b1683a1c35d3427ab59ba74c116bf4b95c5",
+        "styles.css": "971f9466a14dbcdc6257902d3e1cee90e1c4981498dcb129742872013e03b799",
+        "main.js": "0d99799536dad35de301ad648acca6908b156e3c84873f6ae62a713687bf533a"
+      },
+      "components": [],
+      "drafts": {
+        "a70626fb-ff5a-4090-aad6-987185f39e3f": {
+          "title": "Avel Private Aviation Platform",
+          "visualDirection": "Avel monochrome aviation operations with YD Gothic, moving silver hero light, Lucide icons, and sample network dashboard",
+          "currentVersion": 6
+        }
+      },
+      "updatedAt": "2026-09-26T23:00:03Z"
+    }
+  },
+  "updatedAt": "2026-09-26T23:12:00Z"
+}

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="Avel brings private aviation operations into one connected workspace." />
+  <title>Avel | Private aviation operations</title>
+  <link rel="icon" type="image/png" href="/assets/avel-mark.png" />
+  <link rel="preload" href="/fonts/YDGothic-130-Pro.ttf" as="font" type="font/ttf" crossorigin />
+  <script type="module" crossorigin src="/assets/index-BBZ8S0wR.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-ClcfmiEe.css">
+</head>
+<body>
+<div class="site" id="avel-site">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a id="avel-home-logo" class="brand" href="#home" aria-label="Avel home"><img src="/assets/avel-wordmark.png" alt="Avel" /></a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <div class="nav-item">
+            <button class="nav-trigger" type="button" aria-expanded="false">Product</button>
+            <div class="menu-panel">
+              <a id="menu-agents" href="#agents"><span>Avel agents<small>A coordinated team for aviation operations</small></span></a>
+              <a id="menu-setup" href="#setup"><span>Workspace setup<small>Systems, people, and autonomy</small></span></a>
+              <a id="menu-inbox" href="#inbox"><span>Shared inbox<small>Requests and trip conversations</small></span></a>
+              <a id="menu-network" href="#network"><span>Network and trips<small>Schedules and route context</small></span></a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button class="nav-trigger" type="button" aria-expanded="false">For teams</button>
+            <div class="menu-panel">
+              <a id="menu-operators" href="#operations"><span>Operators<small>Coordinate the work around each flight</small></span></a>
+              <a id="menu-brokers" href="#chartering"><span>Brokers<small>Keep requests, aircraft, and conversations together</small></span></a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button class="nav-trigger" type="button" aria-expanded="false">Company</button>
+            <div class="menu-panel">
+              <a id="menu-company" href="#company"><span>About Avel<small>A better way to coordinate every flight</small></span></a>
+              <a id="menu-partners" href="#partners"><span>Partner stories<small>Aviation leadership and community</small></span></a>
+            </div>
+          </div>
+        </nav>
+        <div class="top-actions"><a id="avel-login-link" class="login-link" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Log in</a><a id="avel-header-cta" class="button button-white" href="#footer">Contact Avel</a></div>
+        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
+      </div>
+      <div class="mobile-menu">
+        <a id="mobile-product-link" href="#agents">Product</a>
+        <a id="mobile-operations-link" href="#operations">For teams</a>
+        <a id="mobile-company-link" href="#company">Company</a>
+        <a id="mobile-login-link" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Log in</a>
+        <a id="mobile-contact-link" class="button button-white" href="#footer">Contact Avel</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-atmosphere" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-light">Private aviation, coordinated</span>
+            <h1>One workspace.<br /><span>Every flight in context.</span></h1>
+            <p>Coordinate people, systems, agents, and trip decisions from one considered view of your operation.</p>
+            <a id="avel-hero-cta" class="button button-white" href="#footer">Contact Avel</a>
+          </div>
+          <div class="hero-tabs" aria-label="Avel product areas">
+            <a id="hero-tab-overview" class="hero-tab is-active" href="#home"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+            <a id="hero-tab-agents" class="hero-tab" href="#agents"><i data-lucide="workflow"></i><span>Agents</span></a>
+            <a id="hero-tab-setup" class="hero-tab" href="#setup"><i data-lucide="settings"></i><span>Setup</span></a>
+            <a id="hero-tab-inbox" class="hero-tab" href="#inbox"><i data-lucide="message-circle"></i><span>Inbox</span></a>
+            <a id="hero-tab-network" class="hero-tab" href="#network"><i data-lucide="route"></i><span>Network</span></a>
+          </div>
+        </div>
+
+        <div class="hero-frame" data-reveal>
+          <div class="app-shell">
+            <aside class="app-sidebar">
+              <div class="app-brand"><img class="app-brand-mark" src="/assets/avel-mark.png" alt="Avel logo mark" /><span class="app-brand-caption">Aviation operations</span></div>
+              <div class="side-group"><div class="side-label">Agent</div>
+                <div class="side-link is-selected"><i data-lucide="layout-dashboard"></i><span>Overview</span></div>
+                <div class="side-link"><i data-lucide="workflow"></i><span>Agents</span></div>
+                <div class="side-link"><i data-lucide="settings"></i><span>Setup</span></div>
+                <div class="side-link"><i data-lucide="message-circle"></i><span>Shared inbox</span></div>
+              </div>
+              <div class="side-group"><div class="side-label">Operations</div>
+                <div class="side-link"><i data-lucide="route"></i><span>Network</span></div>
+                <div class="side-link"><i data-lucide="plane"></i><span>Trips</span></div>
+                <div class="side-link"><i data-lucide="orbit"></i><span>Fleet</span></div>
+              </div>
+              <div class="side-group"><div class="side-label">Planning</div>
+                <div class="side-link"><i data-lucide="calendar-days"></i><span>Calendar</span></div>
+                <div class="side-link"><i data-lucide="columns-3"></i><span>Projects</span></div>
+                <div class="side-link"><i data-lucide="users"></i><span>Team</span></div>
+              </div>
+              <div class="side-group"><div class="side-label">Workspace</div>
+                <div class="side-link"><i data-lucide="plug"></i><span>Connections</span></div>
+                <div class="side-link"><i data-lucide="file-text"></i><span>Documents</span></div>
+                <div class="side-link"><i data-lucide="settings"></i><span>Settings</span></div>
+              </div>
+              <div class="side-profile"><span class="profile-avatar">E</span><div><strong>Evan</strong><small>Workspace owner</small></div></div>
+            </aside>
+
+            <section class="app-main" aria-label="Avel network dashboard">
+              <div class="app-breadcrumb">Avel workspace</div>
+              <div class="app-heading"><div><h2>Overview</h2><p>One view of the work around every flight.</p></div></div>
+              <div class="app-divider"></div>
+              <div class="mini-stats">
+                <div class="mini-stat"><span>Trip coordination</span><strong>Connected<small>Schedules and activity</small></strong></div>
+                <div class="mini-stat"><span>Fleet context</span><strong>In view<small>Aircraft availability</small></strong></div>
+                <div class="mini-stat"><span>Inbox requests</span><strong>Unified<small>Messages and decisions</small></strong></div>
+              </div>
+              <div class="map-panel" id="network">
+                <div class="map-header"><div><strong>Operator network</strong><small>Connected routes · local airport times</small></div><div class="map-header-meta"><div class="map-tools"><i data-lucide="search"></i><i data-lucide="maximize-2"></i><i data-lucide="more-horizontal"></i></div></div></div>
+                <div class="map-globe-stage"><div id="network-globe-root" class="network-globe-root" aria-label="Interactive globe with rotating airport routes"></div></div>
+              </div>
+              <div id="flight-rail-root" aria-live="off"></div>
+            </section>
+
+            <aside class="assistant-panel">
+              <div class="assistant-top"><i data-lucide="maximize-2"></i><i data-lucide="x"></i></div>
+              <div class="assistant-content"><div class="assistant-kicker">Earlier conversation</div><div class="assistant-message"><span>What would you like to coordinate across your operation?</span></div></div>
+              <div id="assistant-activity-root"></div>
+              <div class="assistant-input">Ask about your fleet, trips or crew…<div class="assistant-controls"><span class="assistant-chip">Ask Avel</span><span class="assistant-chip">Assisted</span><span class="assistant-submit">Send</span></div></div>
+              <div class="assistant-note">Assisted · Approve an exact plan before execution.</div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stories" id="operations">
+        <div class="container">
+          <div class="section-heading partnership-heading" data-reveal>
+            <div><span class="eyebrow eyebrow-dark">Trust, built across aviation</span><h2>Partnered with<br />excellence.</h2></div>
+            <p class="heading-note">Strong aviation communities are built on experienced leaders, trusted relationships, and a shared commitment to people.</p>
+          </div>
+          <div class="partnership-grid">
+            <article class="partner-profile" id="partners" data-reveal>
+              <a class="partner-profile-image" href="https://alliedjetagency.com/antonio-ferrara/" target="_blank" rel="noreferrer" aria-label="Meet Antonio Ferrara at The Allied Jet Agency">
+                <img src="/assets/antonio-ferrara.jpeg" alt="Antonio Ferrara standing in an aircraft hangar" />
+                <span class="partner-brand"><img src="/assets/stratos-logo.svg" alt="Stratos Jets" /></span>
+              </a>
+              <div class="partner-profile-copy">
+                <span class="eyebrow eyebrow-dark">Aviation leadership</span>
+                <h3>Experience that brings the industry closer.</h3>
+                <p>Antonio Ferrara is the Founder and CEO of The Allied Jet Agency. His work connects aviation leadership with a wider network of operators and the communities they serve.</p>
+                <div class="partner-profile-links">
+                  <a id="antonio-profile-link" class="story-text-link" href="https://alliedjetagency.com/antonio-ferrara/" target="_blank" rel="noreferrer">Meet Antonio Ferrara</a>
+                  <a id="allied-jet-link" class="story-text-link" href="https://alliedjetagency.com/" target="_blank" rel="noreferrer">The Allied Jet Agency</a>
+                </div>
+              </div>
+            </article>
+            <article class="community-feature" data-reveal>
+              <div class="community-feature-top"><span class="eyebrow">A greater cause</span><img class="community-feature-symbol" src="/assets/aviators-for-autism-symbol.avif" alt="Aviators for Autism symbol" /></div>
+              <img class="community-feature-image" src="/assets/aviators-for-autism-group.png" alt="A group gathered in front of private aircraft" />
+              <div class="community-feature-copy">
+                <h3>Opening the skies for a more inclusive future.</h3>
+                <p>Through Aviators for Autism, Antonio helps create welcoming aviation experiences, education, travel support, and employment pathways for neurodiverse individuals and their families.</p>
+                <div class="community-links">
+                  <a id="aviators-for-autism-link" class="story-text-link" href="https://www.aviatorsforautism.org/" target="_blank" rel="noreferrer">Explore Aviators for Autism</a>
+                  <a id="antonio-feature-link" class="story-text-link" href="https://futureinflight.com/longform_antonio-ferrara/" target="_blank" rel="noreferrer">Read Antonio’s feature</a>
+                  <a id="antonio-podcast-link" class="story-text-link" href="https://futureinflight.podbean.com/e/opening-the-skies-aviations-path-to-empowering-the-autism-community/" target="_blank" rel="noreferrer">Listen to the conversation</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section lead-system" id="inbox">
+        <div class="container">
+          <div class="center-heading" data-reveal><span class="eyebrow eyebrow-dark">Shared operational context</span><h2>Every request, message, and trip<br /><span>in the same conversation.</span></h2></div>
+          <div class="lead-layout">
+            <div class="inbox-mock" data-reveal>
+              <div class="inbox-top"><strong>Shared inbox</strong><span>Connected workspace</span></div>
+              <div class="inbox-columns">
+                <div class="inbox-folders"><div class="folder-label">Mailbox</div><div class="folder-row active"><i data-lucide="inbox"></i> All messages <small>08</small></div><div class="folder-row"><i data-lucide="mail"></i> Email <small>05</small></div><div class="folder-row"><i data-lucide="message-circle"></i> Requests <small>03</small></div><div class="folder-row"><i data-lucide="plane"></i> Trips</div><div class="folder-row"><i data-lucide="archive"></i> Archived</div></div>
+                <div class="message-list">
+                  <div class="message-row is-unread"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/03-curious.png" /><source type="image/webp" srcset="/assets/personality-avatars/03-curious.webp" /><img src="/assets/personality-avatars/03-curious.png" alt="" /></picture></span><div><strong>Marina Alvarez</strong><p>Charter request · FLL to TEB · 3 passengers</p></div><time>10:42</time></div>
+                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/18-focused.png" /><source type="image/webp" srcset="/assets/personality-avatars/18-focused.webp" /><img src="/assets/personality-avatars/18-focused.png" alt="" /></picture></span><div><strong>Jordan Wells</strong><p>Updated schedule for the Palm Beach departure</p></div><time>09:18</time></div>
+                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/05-serious.png" /><source type="image/webp" srcset="/assets/personality-avatars/05-serious.webp" /><img src="/assets/personality-avatars/05-serious.png" alt="" /></picture></span><div><strong>Operations desk</strong><p>Trip notes attached for review</p></div><time>Yesterday</time></div>
+                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/08-studious.png" /><source type="image/webp" srcset="/assets/personality-avatars/08-studious.webp" /><img src="/assets/personality-avatars/08-studious.png" alt="" /></picture></span><div><strong>Charter broker</strong><p>Aircraft availability and routing details</p></div><time>Yesterday</time></div>
+                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/11-thoughtful.png" /><source type="image/webp" srcset="/assets/personality-avatars/11-thoughtful.webp" /><img src="/assets/personality-avatars/11-thoughtful.png" alt="" /></picture></span><div><strong>Flight coordination</strong><p>New request added to the workspace</p></div><time>Mon</time></div>
+                </div>
+              </div>
+              <div class="match-card"><span class="eyebrow">Trip context</span><h4>FLL to TEB</h4><div class="match-route"><i data-lucide="plane"></i> Citation Latitude</div><div class="match-divider"></div><div class="match-meta"><span>Passengers <strong>03</strong></span><span>Trip status <strong>Review</strong></span></div></div>
+            </div>
+            <div class="benefit-list" data-reveal>
+              <div class="benefit is-open"><button class="benefit-toggle" type="button" aria-expanded="true"><span class="benefit-index">01</span><span class="benefit-title">Keep messages with their operational context</span><span class="benefit-sign">−</span></button><div class="benefit-body"><div><p>Bring email, charter requests, trip notes, and scheduling details into a shared working view.</p></div></div></div>
+              <div class="benefit"><button class="benefit-toggle" type="button" aria-expanded="false"><span class="benefit-index">02</span><span class="benefit-title">Connect requests to aircraft and availability</span><span class="benefit-sign">+</span></button><div class="benefit-body"><div><p>Compare an incoming request with fleet, schedule, passenger, and routing constraints.</p></div></div></div>
+              <div class="benefit"><button class="benefit-toggle" type="button" aria-expanded="false"><span class="benefit-index">03</span><span class="benefit-title">Give each team a clear next step</span><span class="benefit-sign">+</span></button><div class="benefit-body"><div><p>Keep the plan reviewable, with clear ownership and an autonomy policy visible to your team.</p></div></div></div>
+              <div class="benefit"><button class="benefit-toggle" type="button" aria-expanded="false"><span class="benefit-index">04</span><span class="benefit-title">Support chartering and brokerage workflows</span><span class="benefit-sign">+</span></button><div class="benefit-body"><div><p>Keep conversations, aircraft fit, schedules, and the trip plan together from request through coordination.</p></div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section calculator" id="chartering">
+        <div class="calculator-inner" data-reveal>
+          <span class="eyebrow eyebrow-light">Chartering and brokerage</span>
+          <h2>Every request starts with a clearer picture.</h2>
+          <p class="calculator-intro">Bring passenger needs, aircraft fit, schedule context, and routing into one reviewable trip plan.</p>
+          <div class="trip-card">
+            <div class="trip-card-head"><strong>Charter request</strong><span>Trip overview</span></div>
+            <div class="trip-fields">
+              <div class="trip-field"><span>Departure</span><strong>Fort Lauderdale · FLL</strong></div>
+              <div class="trip-field"><span>Arrival</span><strong>Teterboro · TEB</strong></div>
+              <div class="trip-field"><span>Passenger count</span><strong>03 travelers</strong></div>
+            </div>
+            <div class="trip-match"><i data-lucide="check"></i><div><strong>Trip details are ready for review</strong><small>Aircraft fit and schedule availability depend on connected operator data.</small></div></div>
+            <a id="charter-workflow-link" class="button button-white" href="#modules">View the workflow</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section modules" id="modules">
+        <div class="container">
+          <div class="center-heading modules-heading" data-reveal><span class="eyebrow eyebrow-dark">Avel workspace</span><h2>Tools for the work<br /><span>around every flight.</span></h2></div>
+
+          <article class="module-card agent-module" id="agents">
+            <div class="module-copy" data-reveal><span class="module-tag"><i data-lucide="workflow"></i> Agents</span><h3>A team built around aviation operations.</h3><p>Avel One coordinates work across domain leads and aviation specialists. Keep agent roles, recent tasks, and expertise in one clear library.</p><a id="agents-module-link" class="button button-black" href="https://avel-staging.avelhq.workers.dev/en?view=agents">Explore the agent workspace</a></div>
+            <div class="module-visual agents-visual" data-reveal>
+              <div class="agents-visual-body">
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#e8f2ff 0%,#7d91a6 48%,#cfe6fb 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><img class="agent-portrait agent-portrait-mark" src="/assets/avel-mark.png" alt="" /><div><strong>Avel One</strong><small>Global orchestrator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#72e9c8 0%,#007f74 52%,#8ce7b2 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/01-short-loose-curls.png" /><source type="image/webp" srcset="/assets/agent-avatars/01-short-loose-curls.webp" /><img src="/assets/agent-avatars/01-short-loose-curls.png" alt="" /></picture></span><div><strong>Sales &amp; Customer Revenue</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#8bb4ff 0%,#304fc4 51%,#b59bff 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/05-sleek-side-bob.png" /><source type="image/webp" srcset="/assets/agent-avatars/05-sleek-side-bob.webp" /><img src="/assets/agent-avatars/05-sleek-side-bob.png" alt="" /></picture></span><div><strong>Empty Legs &amp; Network Revenue</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#ffb86b 0%,#d94442 50%,#ffc27a 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/14-high-bun.png" /><source type="image/webp" srcset="/assets/agent-avatars/14-high-bun.webp" /><img src="/assets/agent-avatars/14-high-bun.png" alt="" /></picture></span><div><strong>Trip Operations</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#d88eff 0%,#7437c4 51%,#ff9bcf 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/20-double-braids.png" /><source type="image/webp" srcset="/assets/agent-avatars/20-double-braids.webp" /><img src="/assets/agent-avatars/20-double-braids.png" alt="" /></picture></span><div><strong>Crew</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#ffde68 0%,#c75e18 52%,#ffb868 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/11-long-straight-center.png" /><source type="image/webp" srcset="/assets/agent-avatars/11-long-straight-center.webp" /><img src="/assets/agent-avatars/11-long-straight-center.png" alt="" /></picture></span><div><strong>Maintenance</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#74dcff 0%,#2b5db0 52%,#9cbaff 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/04-tight-coily-halo.png" /><source type="image/webp" srcset="/assets/agent-avatars/04-tight-coily-halo.webp" /><img src="/assets/agent-avatars/04-tight-coily-halo.png" alt="" /></picture></span><div><strong>FBO &amp; Ground</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+                <article class="agent-mini" style="--agent-gradient:linear-gradient(125deg,#b2eb51 0%,#15895d 51%,#82d749 100%)">
+                  <span class="availability">Available</span>
+                  <div class="agent-card-content"><div class="agent-card-heading"><span class="agent-portrait" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/agent-avatars/09-shoulder-waves.png" /><source type="image/webp" srcset="/assets/agent-avatars/09-shoulder-waves.webp" /><img src="/assets/agent-avatars/09-shoulder-waves.png" alt="" /></picture></span><div><strong>Fuel</strong><small>Avel Lead · domain coordinator</small></div></div><div class="agent-folder-row"><i data-lucide="folder"></i><span>Avel workspace</span></div></div>
+                </article>
+              </div>
+            </div>
+          </article>
+
+          <article class="module-card reverse" id="setup">
+            <div class="module-copy" data-reveal>
+              <span class="module-tag"><i data-lucide="settings"></i> Setup</span>
+              <h3>Shape the way your team works.</h3>
+              <p>Connect communication and flight-operation systems to the workspace. Choose a supervised, assisted, or autonomous policy for each workflow.</p>
+              <a id="setup-module-link" class="button button-black" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer">Explore setup</a>
+            </div>
+            <div class="module-visual setup-visual" data-reveal>
+              <div class="visual-head"><strong>Workspace map</strong><span>Communication · systems · team</span></div>
+              <div class="setup-visual-viewport">
+                <div class="setup-visual-body" id="setup-visual-body">
+                  <svg class="setup-lines" aria-hidden="true"></svg>
+                  <section class="setup-wing setup-communication" aria-label="Communication">
+                    <p class="setup-caption">Communication</p>
+                    <article class="setup-node" id="setup-email-node">
+                      <header class="setup-node-head">
+                        <span class="setup-node-icon"><i data-lucide="mail"></i></span>
+                        <strong>Email &amp; messaging</strong>
+                        <span class="setup-state">Offline</span>
+                      </header>
+                      <div class="setup-node-well">
+                        <span class="setup-metal-orb" aria-hidden="true"></span>
+                        <span class="setup-well-label">Not connected</span>
+                        <a class="setup-dark-action" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer">Connect</a>
+                      </div>
+                    </article>
+                    <a class="setup-add-action" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer"><i data-lucide="plus"></i> Add a channel</a>
+                  </section>
+                  <article class="setup-core-card" id="setup-core-node" aria-label="Avel workspace">
+                    <div class="setup-core-orb"><span id="setup-thinking-orb" aria-hidden="true"></span></div>
+                    <strong class="setup-core-title">Avel</strong>
+                    <span class="setup-core-summary">People, systems, and agents</span>
+                    <div class="setup-mode-row" role="group" aria-label="Autonomy policy">
+                      <button type="button" aria-pressed="false">Supervised</button>
+                      <button type="button" class="selected" aria-pressed="true">Assisted</button>
+                      <button type="button" aria-pressed="false">Autonomous</button>
+                    </div>
+                    <a class="setup-configure" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer"><i data-lucide="settings"></i> Configure</a>
+                  </article>
+                  <section class="setup-wing setup-systems" aria-label="Systems">
+                    <p class="setup-caption">Systems</p>
+                    <article class="setup-node" id="setup-fms-node">
+                      <header class="setup-node-head">
+                        <span class="setup-node-icon"><i data-lucide="plane"></i></span>
+                        <strong>Flight operations</strong>
+                      </header>
+                      <a class="setup-connect-action" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer"><i data-lucide="plus"></i> Connect an FMS</a>
+                    </article>
+                    <article class="setup-node setup-system-add" id="setup-add-node">
+                      <span class="setup-node-icon"><i data-lucide="workflow"></i></span>
+                      <strong>Other systems</strong>
+                      <a href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer">Add connection</a>
+                    </article>
+                  </section>
+                  <section class="setup-team-card" id="setup-team-node" aria-label="Team members">
+                    <span class="setup-node-icon"><i data-lucide="users"></i></span>
+                    <div class="setup-team-copy"><strong>Team members</strong><small>People and AI employees, managed together</small></div>
+                    <a href="https://avel-staging.avelhq.workers.dev/en?view=agents" target="_blank" rel="noopener noreferrer">Open agent library</a>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="module-card" id="network-module">
+            <div class="module-copy" data-reveal><span class="module-tag"><i data-lucide="message-circle"></i> Inbox, trips and network</span><h3>Follow a request through the operation.</h3><p>Keep shared messages, charter requests, fleet context, and trip coordination connected across one operational view.</p><a id="network-module-link" class="button button-black" href="#inbox">Explore connected workflows</a></div>
+            <div class="module-visual" data-reveal>
+              <div class="visual-head"><strong>Charter requests</strong><span>Trip coordination</span></div>
+              <div class="inbox-visual-body">
+                <div class="inbox-toolbar"><strong>Requests and trip conversations</strong><span>All requests</span></div>
+                <table class="inbox-table"><thead><tr><th>Request</th><th>Route</th><th>Aircraft fit</th><th>Status</th></tr></thead><tbody>
+                  <tr><td>Marina Alvarez</td><td>FLL to TEB</td><td>Citation Latitude</td><td><span class="table-status">Review</span></td></tr>
+                  <tr><td>Jordan Wells</td><td>PBI to BNA</td><td>Challenger 350</td><td><span class="table-status">Planning</span></td></tr>
+                  <tr><td>Charter broker</td><td>TEB to MIA</td><td>Pending fit</td><td><span class="table-status">New</span></td></tr>
+                  <tr><td>Operations desk</td><td>DAL to ASE</td><td>Pending schedule</td><td><span class="table-status">Review</span></td></tr>
+                </tbody></table>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section principles" id="company">
+        <div class="container">
+          <div class="center-heading" data-reveal><span class="eyebrow eyebrow-light">Designed for coordination</span><h2>One operation.<br />Clear working context.</h2></div>
+          <div class="principle-grid">
+            <article class="principle-card" data-reveal><i data-lucide="workflow"></i><div><h3>Agents with defined roles</h3><p>Orchestrate work across specialist teams, employees, and domain leads.</p></div></article>
+            <article class="principle-card" data-reveal><i data-lucide="plug"></i><div><h3>Systems in one setup</h3><p>See how communication and flight-operation sources connect to Avel.</p></div></article>
+            <article class="principle-card" data-reveal><i data-lucide="message-circle"></i><div><h3>Conversations in context</h3><p>Keep emails, trip requests, and operational details together.</p></div></article>
+            <article class="principle-card" data-reveal><i data-lucide="plane"></i><div><h3>Plans that stay reviewable</h3><p>Make autonomy policy visible, with assisted approval before execution.</p></div></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-cta" data-reveal><div><span class="eyebrow eyebrow-light">Avel aviation operations</span><h2>Bring your operation<br />into one workspace.</h2></div><a id="avel-footer-cta" class="button button-white" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Explore Avel</a></div>
+        <div class="footer-main">
+          <div class="footer-brand-column"><a id="avel-footer-logo" class="brand footer-brand" href="#home" aria-label="Avel home"><img src="/assets/avel-wordmark.png" alt="Avel" /></a><p>Private aviation,<br />in context.</p><div class="social-links"><a id="avel-linkedin" href="https://www.linkedin.com/" aria-label="LinkedIn">LinkedIn</a><a id="avel-instagram" href="https://www.instagram.com/" aria-label="Instagram">Instagram</a></div><a id="avel-privacy" class="privacy-link" href="#footer">Privacy policy</a><small>© 2026 Avel. All rights reserved.</small></div>
+          <div class="footer-links">
+            <div><strong>Product</strong><a id="footer-agents" href="#agents">Agents</a><a id="footer-setup" href="#setup">Setup</a><a id="footer-inbox" href="#inbox">Shared inbox</a><a id="footer-network" href="#network">Network</a></div>
+            <div><strong>Operations</strong><a id="footer-trips" href="#network-module">Trips</a><a id="footer-chartering" href="#chartering">Chartering</a><a id="footer-brokerage" href="#chartering">Brokerage</a><a id="footer-fleet" href="#network">Fleet</a></div>
+            <div><strong>Company</strong><a id="footer-about" href="#company">About Avel</a><a id="footer-partner" href="#partners">Partner stories</a><a id="footer-contact" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Contact</a></div>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>Avel aviation operations workspace</span><span>Connected context for every flight.</span></div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
