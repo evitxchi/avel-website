@@ -120,33 +120,22 @@ const routeSets: RouteSet[] = [
 
 function markersFor(route: RouteSet): GlobeMarker[] {
   const activeLabels = new Map(route.airports.map((airport, index) => [airport.code, route.labelOffsets[index]]))
-  return Object.values(airports).map((airport) => ({
+  return route.airports.map((airport) => ({
     id: `airport-${airport.code.toLowerCase()}`,
     location: airport.location,
-    label: activeLabels.has(airport.code) ? `${airport.code} · ${airport.city.toUpperCase()}` : "",
+    label: `${airport.code} · ${airport.city.toUpperCase()}`,
     labelOffset: activeLabels.get(airport.code),
   }))
 }
 
 function arcsFor(route: RouteSet): GlobeArc[] {
-  const itineraryArcs = routeSets.flatMap((set) => set.legs.map((leg, index) => ({
-    id: `${set.id}-${index}`,
+  return route.legs.map((leg, index) => ({
+    id: `${route.id}-${index}`,
     from: leg.from.location,
     to: leg.to.location,
     color: leg.color,
-    active: set.id === route.id,
-  })))
-  const networkArcs: GlobeArc[] = [
-    { id: "network-sydney-auckland", from: airports.SYD.location, to: airports.AKL.location, color: [0.77, 0.83, 0.9] },
-    { id: "network-auckland-honolulu", from: airports.AKL.location, to: airports.HNL.location, color: [0.91, 0.88, 0.8] },
-    { id: "network-cape-town-sao-paulo", from: airports.CPT.location, to: airports.GRU.location, color: [0.78, 0.84, 0.91] },
-    { id: "network-sao-paulo-santiago", from: airports.GRU.location, to: airports.SCL.location, color: [0.9, 0.83, 0.75] },
-    { id: "network-santiago-los-angeles", from: airports.SCL.location, to: airports.LAX.location, color: [0.82, 0.85, 0.9] },
-    { id: "network-miami-sao-paulo", from: airports.MIA.location, to: airports.GRU.location, color: [0.89, 0.84, 0.77] },
-    { id: "network-cape-town-dubai", from: airports.CPT.location, to: airports.DXB.location, color: [0.77, 0.84, 0.85] },
-    { id: "network-los-angeles-tokyo", from: airports.LAX.location, to: airports.HND.location, color: [0.83, 0.86, 0.92] },
-  ]
-  return [...itineraryArcs, ...networkArcs]
+    active: true,
+  }))
 }
 
 function distanceBetween(from: Airport, to: Airport): string {

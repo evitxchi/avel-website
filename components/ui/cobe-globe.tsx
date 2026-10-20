@@ -41,37 +41,6 @@ interface GlobeProps {
   mapPointCount?: number
 }
 
-function greatCirclePosition(
-  from: [number, number],
-  to: [number, number],
-  progress: number,
-): [number, number] {
-  const radians = Math.PI / 180
-  const [lat1, lon1] = from.map((value) => value * radians)
-  const [lat2, lon2] = to.map((value) => value * radians)
-  const start = [
-    Math.cos(lat1) * Math.cos(lon1),
-    Math.cos(lat1) * Math.sin(lon1),
-    Math.sin(lat1),
-  ]
-  const end = [
-    Math.cos(lat2) * Math.cos(lon2),
-    Math.cos(lat2) * Math.sin(lon2),
-    Math.sin(lat2),
-  ]
-  const dot = Math.max(-1, Math.min(1, start.reduce((sum, value, i) => sum + value * end[i], 0)))
-  const angle = Math.acos(dot)
-  if (angle < 0.000001) return from
-
-  const sinAngle = Math.sin(angle)
-  const a = Math.sin((1 - progress) * angle) / sinAngle
-  const b = Math.sin(progress * angle) / sinAngle
-  const point = start.map((value, i) => value * a + end[i] * b)
-  const latitude = Math.atan2(point[2], Math.hypot(point[0], point[1])) / radians
-  const longitude = Math.atan2(point[1], point[0]) / radians
-  return [latitude, longitude]
-}
-
 export function Globe({
   markers = [],
   arcs = [],
@@ -161,7 +130,6 @@ export function Globe({
     let currentWidth = 0
     let phi = -0.35
     let previousFrame = 0
-    let flightProgress = 0.58
 
     const draw = (frameTime: number) => {
       if (!globe) return
@@ -170,7 +138,6 @@ export function Globe({
 
       if (!isPausedRef.current && !reducedMotion) {
         phi += speed * (elapsed / 16.67)
-        flightProgress = (flightProgress + elapsed / 11000) % 1
         if (Math.abs(velocity.current.phi) > 0.0001 || Math.abs(velocity.current.theta) > 0.0001) {
           phiOffsetRef.current += velocity.current.phi
           thetaOffsetRef.current += velocity.current.theta
@@ -196,34 +163,10 @@ export function Globe({
       const routeGlow = activeLeg?.color ?? arcColor
       const colorChannels = routeGlow.map((channel) => Math.round(channel * 255))
       canvas.style.filter = `drop-shadow(0 0 ${5 + pulse * 5}px rgba(${colorChannels.join(",")}, ${0.1 + pulse * 0.12}))`
-      const movingMarkers = currentArcs.filter((arc) => arc.active).map((arc, index) => {
-        const progress = (flightProgress + index * 0.38) % 1
-        const color = arc.color ?? routeGlow
-        return {
-          location: greatCirclePosition(arc.from, arc.to, progress),
-          size: markerSize * (1.18 + pulse * 0.62),
-          color: color.map((channel) => Math.min(1, channel * (0.96 + pulse * 0.16))) as [number, number, number],
-        }
-      })
-
-      const routeLines = currentArcs.flatMap((arc, index) => {
-        const progress = (flightProgress + index * 0.38) % 1
-        const basePulse = (arc.active ? 0.9 : 0.82) + Math.sin(frameTime / 710 + index * 1.3) * 0.08
-        const baseStrength = arc.active ? 0.66 : 0.5
-        const glintStrength = arc.active ? 1.02 + pulse * 0.12 : 0.82 + pulse * 0.1
-        const baseColor = arc.color?.map((channel) => channel * basePulse * baseStrength) as [number, number, number] | undefined
-        const glintColor = arc.color?.map((channel) => Math.min(1, channel * glintStrength)) as [number, number, number] | undefined
-        const glintEnd = Math.min(progress + (arc.active ? 0.075 : 0.055), 1)
-
-        return [
-          { from: arc.from, to: arc.to, id: `${arc.id}-base`, color: baseColor },
-          {
-            from: greatCirclePosition(arc.from, arc.to, progress),
-            to: greatCirclePosition(arc.from, arc.to, glintEnd),
-            id: `${arc.id}-glint`,
-            color: glintColor,
-          },
-        ]
+      const routeLines = currentArcs.map((arc, index) => {
+        const brightness = 0.74 + Math.sin(frameTime / 1100 + index * 1.2) * 0.07 + pulse * 0.08
+        const color = (arc.color ?? routeGlow).map((channel) => Math.min(1, channel * brightness)) as [number, number, number]
+        return { from: arc.from, to: arc.to, id: arc.id, color }
       })
 
       globe.update({
@@ -236,10 +179,10 @@ export function Globe({
         baseColor,
         arcColor: [arcColor[0] * silverLift, arcColor[1] * silverLift, arcColor[2] * silverLift],
         glowColor: routeGlow.map((channel) => Math.min(1, channel * (0.86 + pulse * 0.14))) as [number, number, number],
-        arcWidth: arcWidth * (0.82 + pulse * 0.56),
+        arcWidth,
         arcHeight,
         markerElevation,
-        markers: [...airportMarkers, ...movingMarkers],
+        markers: airportMarkers,
         arcs: routeLines,
       })
       animationId = requestAnimationFrame(draw)
