@@ -1,12 +1,12 @@
 import {
   Archive, CalendarDays, Check, CircleDot, Folder,
-  Columns3, FileText, Inbox, LayoutDashboard, Mail, Maximize2, Menu, MessageCircle,
+  Columns3, FileText, Inbox, LayoutDashboard, Mail, Menu, MessageCircle,
   MoreHorizontal, Orbit, Plane, Plug, Plus, Route, Search, Settings,
   Users, Workflow, X, createIcons,
 } from "lucide"
 
 createIcons({
-  icons: { Archive, CalendarDays, Check, CircleDot, Columns3, FileText, Folder, Inbox, LayoutDashboard, Mail, Maximize2, Menu, MessageCircle, MoreHorizontal, Orbit, Plane, Plug, Plus, Route, Search, Settings, Users, Workflow, X },
+  icons: { Archive, CalendarDays, Check, CircleDot, Columns3, FileText, Folder, Inbox, LayoutDashboard, Mail, Menu, MessageCircle, MoreHorizontal, Orbit, Plane, Plug, Plus, Route, Search, Settings, Users, Workflow, X },
   attrs: { "stroke-width": 1.7 },
 })
 

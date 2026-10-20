@@ -1,0 +1,95 @@
+@font-face{font-family:ContactYDGothic;src:url("/fonts/YDGothic-130-Pro.ttf") format("truetype");font-display:swap}
+
+.contact-page{min-height:100vh;padding:18px clamp(18px,4.5vw,88px) 32px;background:radial-gradient(ellipse at 5% 84%,rgba(201,207,214,.42),transparent 42%),linear-gradient(135deg,#fbfbfc 0%,#f3f4f5 55%,#fff 100%);color:#121416;font-family:ContactYDGothic,YDGothic,Arial,sans-serif}
+.contact-main{width:min(1620px,100%);margin:0 auto}
+.contact-kicker{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 74px;color:#72777d;font-family:CarbonPlus,monospace;font-size:12px;font-weight:300;letter-spacing:.14em;line-height:1.4;text-align:center;text-transform:uppercase}
+.contact-kicker span{width:8px;height:8px;flex:0 0 8px;border:1px solid #c6cbd0;background:linear-gradient(135deg,#fff,#aeb4ba 52%,#e8eaed);box-shadow:0 0 9px rgba(175,182,189,.42);animation:silver-square-pulse 3.8s ease-in-out infinite}
+.contact-panel{position:relative;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(420px,.82fr);min-height:min(81vh,1040px);border:1px solid #dfe2e5;background:#fff;box-shadow:0 28px 85px rgba(20,24,29,.075)}
+.contact-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,7.5vw,128px) clamp(38px,5.2vw,98px);background:radial-gradient(ellipse at 18% 90%,rgba(182,190,199,.26),transparent 48%),linear-gradient(142deg,#fff 2%,#f5f6f7 57%,#e8eaed 100%)}
+.contact-eyebrow{margin-bottom:24px;color:#747a80;font-family:CarbonPlus,monospace;font-size:11px;font-weight:300;letter-spacing:.15em;text-transform:uppercase}
+.contact-copy h1{max-width:780px;margin:0;font-size:clamp(44px,5.4vw,82px);font-weight:400;letter-spacing:-.06em;line-height:1.02;text-wrap:balance}
+.contact-copy h1 span{color:#60656b}
+.contact-intro{max-width:660px;margin:34px 0 0;color:#5f6469;font-family:YDGothic,Arial,sans-serif;font-size:clamp(17px,1.55vw,23px);line-height:1.58}
+.contact-team{display:flex;align-items:center;gap:16px;margin-top:60px}
+.contact-team-icon{width:60px;height:60px;flex:0 0 60px;display:grid;place-items:center;border:1px solid #e2e4e7;border-radius:14px;background:linear-gradient(145deg,#f8f9fa,#dce0e4);color:#1c1e20}
+.contact-team-mark{width:11px;height:11px;border:1px solid rgba(255,255,255,.95);background:linear-gradient(135deg,#f8f9fa 0%,#aeb4ba 52%,#e8eaed 100%);box-shadow:0 0 9px rgba(175,182,189,.48),inset 0 0 2px #fff;animation:silver-square-pulse 3.8s ease-in-out infinite}
+.contact-team strong,.contact-team small{display:block}
+.contact-team strong{font-size:17px;font-weight:500}
+.contact-team small{margin-top:5px;color:#777d83;font-size:14px;line-height:1.45}
+.contact-form-wrap{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,4vw,64px) clamp(28px,4vw,62px);border-left:1px solid #e1e3e5;background:rgba(255,255,255,.94)}
+.contact-form-note{min-height:24px;margin:0 0 25px;color:#747a80;font-size:14px;line-height:1.5}
+.contact-form{display:grid;gap:24px}
+.contact-field{display:grid;gap:11px;color:#1e2022;font-size:16px;font-weight:500}
+.contact-field em{color:#858a8f;font-size:.9em;font-style:normal;font-weight:400}
+.contact-field input,.contact-field textarea{width:100%;border:1px solid #dfe2e5;border-radius:6px;background:linear-gradient(180deg,#fdfdfd,#fafafa);color:#151719;font:400 17px/1.45 YDGothic,Arial,sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.025);transition:border-color .2s ease,box-shadow .2s ease}
+.contact-field input{min-height:62px;padding:15px 17px}
+.contact-field textarea{min-height:146px;padding:16px 17px;resize:vertical}
+.contact-field input::placeholder,.contact-field textarea::placeholder{color:#989da2;opacity:1}
+.contact-field input:focus,.contact-field textarea:focus{outline:none;border-color:#7c8288;box-shadow:0 0 0 3px rgba(160,167,174,.18)}
+.contact-honeypot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important}
+.contact-submit{min-height:64px;display:flex;align-items:center;justify-content:center;margin-top:3px;padding:0 24px;border:1px solid #1a1b1d;border-radius:7px;background:#17181a;color:#fff;font:400 16px YDGothic,Arial,sans-serif;cursor:pointer;transition:background .2s ease,transform .2s ease}
+.contact-submit:hover{transform:translateY(-1px);background:#2a2c2e}
+.contact-submit:focus-visible{outline:3px solid rgba(93,99,105,.35);outline-offset:3px}
+.contact-submit:disabled{cursor:wait;opacity:.72;transform:none}
+.contact-privacy{margin:0;color:#858a8f;font-size:13px;line-height:1.5;text-align:center}
+.contact-form-note.is-error{color:#a32626}
+.contact-form-note.is-success{color:#397247}
+.contact-agent{position:absolute;z-index:2;width:106px;height:106px;display:grid;place-items:center;overflow:hidden;border:6px solid rgba(255,255,255,.97);border-radius:26px;background:linear-gradient(145deg,#fafbfc 0%,#d9dde1 56%,#9299a0 100%);box-shadow:0 18px 36px rgba(18,22,27,.14);animation:contact-agent-float 6s ease-in-out infinite}
+.contact-agent img{width:64px;height:64px;object-fit:contain;filter:grayscale(1) contrast(1.05)}
+.contact-agent-two{background:linear-gradient(145deg,#f6f7f8 0%,#858b92 56%,#24272a 100%);animation-delay:-1.6s}
+.contact-agent-three{background:linear-gradient(145deg,#fff 0%,#e3e6e9 52%,#b5bbc1 100%);animation-delay:-3.2s}
+.contact-agent-four{background:linear-gradient(145deg,#d8dce0 0%,#7b8289 58%,#17191b 100%);animation-delay:-4.5s}
+.contact-agent-one{top:-48px;left:-42px;transform:rotate(-10deg)}
+.contact-agent-two{top:-48px;right:-42px;transform:rotate(10deg)}
+.contact-agent-three{bottom:94px;left:-50px;transform:rotate(-11deg)}
+.contact-agent-four{right:-44px;bottom:-42px;transform:rotate(9deg)}
+@keyframes contact-agent-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.contact-tagline{margin:66px 0 0;color:#686d72;font-size:18px;line-height:1.5;text-align:center}
+.contact-back{display:table;margin:18px auto 0;color:#70757a;font-family:CarbonPlus,monospace;font-size:10px;letter-spacing:.11em;text-decoration:underline;text-underline-offset:4px;text-transform:uppercase}
+.contact-back:hover{color:#151719}
+
+@media(max-width:1000px){
+  .contact-panel{grid-template-columns:minmax(0,1fr) minmax(360px,.9fr);min-height:76vh}
+  .contact-copy{padding:58px 42px}
+  .contact-form-wrap{padding:42px 34px}
+  .contact-copy h1{font-size:clamp(42px,5.7vw,62px)}
+  .contact-agent{width:82px;height:82px;border-radius:22px;border-width:5px}
+  .contact-agent img{width:52px;height:52px}
+  .contact-agent-one{left:-30px}
+  .contact-agent-two{right:-30px}
+  .contact-agent-three{left:-34px}
+  .contact-agent-four{right:-30px}
+}
+@media(max-width:760px){
+  .contact-page{padding:18px 18px 30px}
+  .contact-kicker{margin-bottom:56px;font-size:10px;letter-spacing:.1em}
+  .contact-panel{grid-template-columns:1fr;min-height:0}
+  .contact-copy{min-height:420px;padding:54px 34px 42px}
+  .contact-copy h1{font-size:clamp(42px,8vw,64px)}
+  .contact-intro{margin-top:22px;font-size:17px}
+  .contact-team{margin-top:33px}
+  .contact-form-wrap{padding:34px;border-top:1px solid #e1e3e5;border-left:0}
+  .contact-form{gap:19px}
+  .contact-field{gap:8px;font-size:15px}
+  .contact-field input{min-height:56px;font-size:16px}
+  .contact-field textarea{min-height:124px;font-size:16px}
+  .contact-submit{min-height:58px}
+  .contact-agent{width:64px;height:64px;border-width:4px;border-radius:18px}
+  .contact-agent img{width:40px;height:40px}
+  .contact-agent-one{top:-32px;left:-10px}
+  .contact-agent-two{top:-32px;right:-10px}
+  .contact-agent-three{display:none}
+  .contact-agent-four{right:-10px;bottom:-25px}
+  .contact-tagline{margin-top:42px;font-size:15px}
+}
+@media(max-width:420px){
+  .contact-copy{min-height:380px;padding:48px 23px 32px}
+  .contact-copy h1{font-size:40px}
+  .contact-intro{font-size:15px}
+  .contact-team-icon{width:50px;height:50px;flex-basis:50px}
+  .contact-team strong{font-size:14px}
+  .contact-team small{font-size:11px}
+  .contact-form-wrap{padding:27px 23px}
+  .contact-form-note{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){.contact-agent{animation:none}}

@@ -13,7 +13,7 @@
 <body>
 <div class="site" id="avel-site">
     <div class="announcement-bar" id="avel-announcement" role="region" aria-label="Avel announcement">
-      <a class="announcement-link" href="#agents">Meet the specialist agents that run your flights <span aria-hidden="true">→</span></a>
+      <a class="announcement-link" href="#agents">Meet the specialist agents that run your flights</a>
       <button class="announcement-dismiss" id="announcement-dismiss" type="button" aria-label="Dismiss announcement">×</button>
     </div>
     <header class="topbar">
@@ -44,7 +44,7 @@
             </div>
           </div>
         </nav>
-        <div class="top-actions"><a id="avel-login-link" class="login-link" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Log in</a><a id="avel-header-cta" class="button button-white" href="#footer">Contact Avel</a></div>
+        <div class="top-actions"><a id="avel-login-link" class="login-link" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Log in</a><a id="avel-header-cta" class="button button-white" href="/contact/">Contact Avel</a></div>
         <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><i data-lucide="menu"></i></button>
       </div>
       <div class="mobile-menu">
@@ -52,7 +52,7 @@
         <a id="mobile-operations-link" href="#operations">For teams</a>
         <a id="mobile-company-link" href="#company">Company</a>
         <a id="mobile-login-link" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Log in</a>
-        <a id="mobile-contact-link" class="button button-white" href="#footer">Contact Avel</a>
+        <a id="mobile-contact-link" class="button button-white" href="/contact/">Contact Avel</a>
       </div>
     </header>
 
@@ -62,9 +62,9 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <span class="eyebrow eyebrow-light">Private aviation, coordinated</span>
-            <h1>One workspace.<br /><span>Every flight in context.</span></h1>
-            <p>Coordinate people, systems, agents, and trip decisions from one considered view of your operation.</p>
-            <a id="avel-hero-cta" class="button button-white" href="#footer">Contact Avel</a>
+            <h1>Your existing systems.<br /><span>Now working for you.</span></h1>
+            <p>Keep your FMS, email, phones, and existing tools. Avel becomes your 24/7 AI execution layer. Not another dashboard that reports, but a workforce that acts.</p>
+            <a id="skydeck-backed-by" class="skydeck-badge" href="https://skydeck.berkeley.edu/" target="_blank" rel="noopener noreferrer" aria-label="Backed by Berkeley SkyDeck (opens in a new tab)"><span class="skydeck-square" aria-hidden="true"></span><span class="skydeck-backed-label">Backed by</span><img src="/assets/BSkyDeck-H-GoldWhite2-master.png" alt="Berkeley SkyDeck" /></a>
           </div>
           <div class="hero-tabs" aria-label="Avel product areas">
             <a id="hero-tab-overview" class="hero-tab is-active" href="#home"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
@@ -113,14 +113,14 @@
                 <div class="mini-stat"><span>Inbox requests</span><strong>Unified<small>Messages and decisions</small></strong></div>
               </div>
               <div class="map-panel" id="network">
-                <div class="map-header"><div><strong>Operator network</strong><small>Connected routes · local airport times</small></div><div class="map-header-meta"><div class="map-tools"><i data-lucide="search"></i><i data-lucide="maximize-2"></i><i data-lucide="more-horizontal"></i></div></div></div>
+                <div class="map-header"><div><strong>Operator network</strong><small>Connected routes · local airport times</small></div><div class="map-header-meta"><div class="map-tools"><i data-lucide="search"></i><i data-lucide="more-horizontal"></i></div></div></div>
                 <div class="map-globe-stage"><div id="network-globe-root" class="network-globe-root" aria-label="Interactive globe with rotating airport routes"></div></div>
               </div>
               <div id="flight-rail-root" aria-live="off"></div>
             </section>
 
             <aside class="assistant-panel">
-              <div class="assistant-top"><i data-lucide="maximize-2"></i><i data-lucide="x"></i></div>
+              <div class="assistant-top"><i data-lucide="x"></i></div>
               <div class="assistant-content"><div class="assistant-kicker">Earlier conversation</div><div class="assistant-message"><span>What would you like to coordinate across your operation?</span></div></div>
               <div id="assistant-activity-root"></div>
               <div class="assistant-input">Ask about your fleet, trips or crew…<div class="assistant-controls"><span class="assistant-chip">Ask Avel</span><span class="assistant-chip">Assisted</span><span class="assistant-submit">Send</span></div></div>
@@ -362,7 +362,7 @@
           <div class="footer-links">
             <div><strong>Product</strong><a id="footer-agents" href="#agents">Agents</a><a id="footer-setup" href="#setup">Setup</a><a id="footer-inbox" href="#inbox">Shared inbox</a><a id="footer-network" href="#network">Network</a></div>
             <div><strong>Operations</strong><a id="footer-trips" href="#network-module">Trips</a><a id="footer-chartering" href="#chartering">Chartering</a><a id="footer-brokerage" href="#chartering">Brokerage</a><a id="footer-fleet" href="#network">Fleet</a></div>
-            <div><strong>Company</strong><a id="footer-about" href="#company">About Avel</a><a id="footer-partner" href="#partners" hidden>Partner stories</a><a id="footer-contact" href="https://avel-staging.avelhq.workers.dev/en?view=overview">Contact</a></div>
+            <div><strong>Company</strong><a id="footer-about" href="#company">About Avel</a><a id="footer-partner" href="#partners" hidden>Partner stories</a><a id="footer-contact" href="/contact/">Contact</a></div>
           </div>
         </div>
         <div class="footer-bottom"><span>Avel aviation operations workspace</span><span>Connected context for every flight.</span></div>

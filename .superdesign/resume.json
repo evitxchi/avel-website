@@ -17,7 +17,8 @@
         "avel-yd-gothic-130-pro",
         "avel-icon-black",
         "9695a274-13d1-4a26-b7cc-11bbc4e01520",
-        "615de3bf-9945-4fc4-a1eb-fb85fae54e81"
+        "615de3bf-9945-4fc4-a1eb-fb85fae54e81",
+        "uc-berkeley-skydeck-logo"
       ],
       "brandAssets": {
         "logo": {
@@ -40,20 +41,20 @@
       "fingerprints": {
         ".superdesign/design-system.md": "6c77f66e0829c0a99a3a99195eeada8f00ccfd7b32b0f77f5e8b182a50ff148e",
         ".superdesign/avel-product-context.md": "46388d82a2dcc9540e6acc82e4972da007c6b6df3be71f3eaf369d957ad0b1b3",
-        "index.html": "f1653f9fe96eda5f0af477449c3379374e893e4ff4e5151bfc01c3f18ae325e1",
-        "styles.css": "092fff293815dfd8d215e9560c5d694ca5e7aa65fb8f4a3b577c57c38cd5e6f8",
-        "main.js": "34217fdcd2c469c8c1b88a12542811feaf656aa8a301d961cdbb9ef6bacfaf29"
+        "index.html": "73814c91e3bb9d35c5ba67b8361f2b96eb8fdd9d2f3c28d82090143f477cbab4",
+        "styles.css": "f85e993bd8cda46c2fd4b8b5f2c9f4fb2bfc13b4432a96abc629c67a9979d4bd",
+        "main.js": "6d138d4ab68132805bad6093e750e25398d3a77b80bbfcce411e310071643ecb"
       },
       "components": [],
       "drafts": {
         "a70626fb-ff5a-4090-aad6-987185f39e3f": {
           "title": "Avel Private Aviation Platform",
-          "visualDirection": "Avel monochrome aviation site with a dismissible silver-gradient agent announcement and centered brand identity strip.",
-          "currentVersion": 7
+          "visualDirection": "Avel monochrome aviation site with a silver-gradient agent announcement and UC Berkeley SkyDeck endorsement capsule.",
+          "currentVersion": 8
         }
       },
-      "updatedAt": "2026-10-20T05:31:22Z"
+      "updatedAt": "2026-10-20T05:47:27.875Z"
     }
   },
-  "updatedAt": "2026-10-20T05:31:22Z"
+  "updatedAt": "2026-10-20T05:47:27.875Z"
 }

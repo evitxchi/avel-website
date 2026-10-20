@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f5f6" />
+  <meta name="description" content="Talk with Avel about your aviation operation, team, and flight workflows." />
+  <title>Contact Avel | Private aviation operations</title>
+  <link rel="icon" type="image/png" href="/assets/avel-mark.png" />
+  <link rel="preload" href="/fonts/YDGothic-130-Pro.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="./contact.css" />
+</head>
+<body>
+  <div class="contact-page">
+    <main class="contact-main">
+      <p class="contact-kicker"><span aria-hidden="true"></span>Let’s talk private aviation operations</p>
+
+      <section class="contact-panel" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <span class="contact-eyebrow">Avel aviation operations</span>
+          <h1 id="contact-title">Get in touch with<br /><span>our aviation team.</span></h1>
+          <p class="contact-intro">Tell us about your flights, fleet, and what your team is working to improve. We’ll help you see where Avel fits alongside your existing systems.</p>
+
+          <div class="contact-team">
+            <span class="contact-team-icon" aria-hidden="true"><span class="contact-team-mark"></span></span>
+            <span><strong>Built around aviation</strong><small>Operators · charter teams · flight departments</small></span>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <p class="contact-form-note" id="contact-form-note" aria-live="polite">Name, email, and message are required.</p>
+          <form id="avel-contact-form" class="contact-form">
+            <label class="contact-field">
+              <span>Name</span>
+              <input name="name" type="text" placeholder="Your full name" autocomplete="name" maxlength="160" required />
+            </label>
+            <label class="contact-field">
+              <span>Email</span>
+              <input name="email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="320" required />
+            </label>
+            <label class="contact-field">
+              <span>Phone <em>(optional)</em></span>
+              <input name="phone" type="tel" placeholder="Your phone number" autocomplete="tel" maxlength="80" />
+            </label>
+            <label class="contact-field">
+              <span>Message</span>
+              <textarea name="message" placeholder="Tell us about your aviation operation and what your team needs." maxlength="4000" required></textarea>
+            </label>
+
+            <label class="contact-honeypot" aria-hidden="true" tabindex="-1">
+              Leave this field empty
+              <input name="website" type="text" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <button class="contact-submit" id="contact-submit" type="submit"><span>Send message</span></button>
+            <p class="contact-privacy">We’ll use your details to respond to your inquiry.</p>
+          </form>
+        </div>
+
+        <div class="contact-agent contact-agent-one" aria-hidden="true"><img src="/assets/agent-avatars/01-short-loose-curls.webp" alt="" /></div>
+        <div class="contact-agent contact-agent-two" aria-hidden="true"><img src="/assets/agent-avatars/05-sleek-side-bob.webp" alt="" /></div>
+        <div class="contact-agent contact-agent-three" aria-hidden="true"><img src="/assets/agent-avatars/14-high-bun.webp" alt="" /></div>
+        <div class="contact-agent contact-agent-four" aria-hidden="true"><img src="/assets/agent-avatars/04-tight-coily-halo.webp" alt="" /></div>
+      </section>
+
+      <p class="contact-tagline">Your operation. Your team. One connected workspace.</p>
+      <a class="contact-back" href="/#home">Back to Avel</a>
+    </main>
+  </div>
+  <script type="module" src="./contact.js"></script>
+</body>
+</html>

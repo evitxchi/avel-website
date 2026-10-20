@@ -63,11 +63,17 @@
     @keyframes silver-square-pulse{0%,100%{opacity:.78;filter:brightness(.88);box-shadow:0 0 4px rgba(225,231,237,.23),inset 0 0 2px rgba(255,255,255,.72)}50%{opacity:1;filter:brightness(1.2);box-shadow:0 0 12px rgba(225,231,237,.72),0 0 20px rgba(187,196,205,.22),inset 0 0 3px #fff}}
     .eyebrow-light{color:rgba(255,255,255,.74)}
     .eyebrow-dark{color:#70757a}
-    .hero h1{max-width:850px;margin:22px auto 0;font-size:clamp(58px,7vw,96px);line-height:.99;font-weight:400;letter-spacing:-.055em}
+    .hero h1{max-width:1100px;margin:22px auto 0;font-size:clamp(54px,6.6vw,90px);line-height:.99;font-weight:400;letter-spacing:-.055em;text-wrap:balance}
     .hero h1 span{color:transparent;background:linear-gradient(105deg,#fff 4%,#d7d9dc 28%,#fff 44%,#a8adb3 63%,#f7f7f7 82%);background-size:220% auto;background-clip:text;-webkit-background-clip:text;animation:wordmark-glint 8s ease-in-out infinite}
     @keyframes wordmark-glint{0%,100%{background-position:100% 0}50%{background-position:0 0}}
-    .hero-copy>p:last-of-type{max-width:575px;margin:25px auto 0;color:rgba(255,255,255,.78);font-size:17px;line-height:1.6}
-    .hero-copy .button{margin-top:30px}
+    .hero-copy>p:last-of-type{max-width:760px;margin:25px auto 0;color:rgba(255,255,255,.78);font-size:17px;line-height:1.6}
+    .skydeck-badge{width:fit-content;max-width:calc(100vw - 48px);min-height:0;margin:28px auto 0;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:14px;border:1px solid rgba(221,226,231,.82);border-radius:12px;background:linear-gradient(145deg,rgba(43,45,48,.78),rgba(67,69,72,.66));box-shadow:none;color:#bfc0c3;text-decoration:none;transition:border-color .3s ease,background-color .3s ease}
+    .skydeck-badge:hover{border-color:rgba(247,248,249,.96);background:linear-gradient(145deg,rgba(48,50,53,.84),rgba(74,76,79,.72))}
+    .skydeck-badge:focus-visible{outline:2px solid #e6e8eb;outline-offset:4px}
+    .skydeck-square{width:7px;height:7px;flex:0 0 7px;border:1px solid rgba(255,238,186,.9);background:linear-gradient(135deg,#fff5d6 0%,#efc45b 42%,#c58c19 100%);box-shadow:0 0 7px rgba(239,196,91,.48),inset 0 0 2px rgba(255,255,255,.88);animation:gold-square-pulse 3.8s ease-in-out infinite}
+    @keyframes gold-square-pulse{0%,100%{opacity:.82;filter:brightness(.9);box-shadow:0 0 4px rgba(239,196,91,.28),inset 0 0 2px rgba(255,255,255,.72)}50%{opacity:1;filter:brightness(1.22);box-shadow:0 0 12px rgba(255,211,103,.82),0 0 20px rgba(203,147,36,.34),inset 0 0 3px #fff8df}}
+    .skydeck-backed-label{flex:none;color:rgba(255,255,255,.78);font-family:CarbonPlus,monospace;font-size:11px;font-weight:300;letter-spacing:.12em;line-height:1.4;text-transform:uppercase;white-space:nowrap}
+    .skydeck-badge img{width:clamp(180px,22vw,230px);height:auto;max-height:28px;object-fit:contain;flex:0 1 auto}
     .hero-tabs{width:min(840px,100%);margin:79px auto 0;display:flex;justify-content:center;gap:48px;border-bottom:1px solid rgba(255,255,255,.24)}
     .hero-tab{position:relative;display:flex;align-items:center;gap:9px;padding:0 0 17px;border:0;background:none;color:rgba(255,255,255,.62);font-size:12px;white-space:nowrap;transition:color .3s ease}
     .hero-tab svg{width:15px;height:15px}
@@ -435,6 +441,10 @@
       .principle-grid{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:820px){
+      .skydeck-badge{gap:12px}
+      .skydeck-badge img{width:min(28vw,210px);max-height:26px}
+      .hero h1{max-width:740px;font-size:clamp(40px,7.5vw,62px)}
+      .hero-copy>p:last-of-type{max-width:650px}
       .topbar-inner{height:72px}
       .desktop-nav,.top-actions{display:none}
       .mobile-menu-toggle{display:grid}
@@ -478,6 +488,12 @@
       .footer-main{gap:32px}
     }
     @media(max-width:560px){
+      .skydeck-badge{max-width:92%;margin-top:22px;padding:8px 12px;gap:9px}
+      .skydeck-backed-label{font-size:9px;letter-spacing:.1em}
+      .skydeck-square{width:6px;height:6px;flex-basis:6px}
+      .skydeck-badge img{width:min(44vw,170px);max-height:22px}
+      .hero h1{font-size:clamp(34px,8.5vw,42px)}
+      .hero-copy>p:last-of-type{max-width:365px;font-size:13px}
       .topbar-inner{width:calc(100% - 34px)}
       .brand img{width:91px}
       .hero{padding-top:112px}
