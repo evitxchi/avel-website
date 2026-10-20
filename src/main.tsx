@@ -210,19 +210,7 @@ function FlightDirection() {
 const globeRoot = document.getElementById("network-globe-root")
 const flightRailRoot = document.getElementById("flight-rail-root")
 const assistantOrbRoot = document.getElementById("assistant-orb-root")
-const setupThinkingOrbRoot = document.getElementById("setup-thinking-orb")
 const globeSpeed = 0.001
-
-if (setupThinkingOrbRoot) {
-  createRoot(setupThinkingOrbRoot).render(
-    <ThinkingOrb
-      state="solving"
-      size={64}
-      speed={0.55}
-      paused={window.matchMedia("(prefers-reduced-motion: reduce)").matches}
-    />,
-  )
-}
 
 if (globeRoot && flightRailRoot) {
   const globe = createRoot(globeRoot)
