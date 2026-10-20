@@ -14,7 +14,16 @@
     a{color:inherit;text-decoration:none}
     svg.lucide,[data-lucide]{width:18px;height:18px;stroke-width:1.8}
     .site{overflow:hidden}
-    .topbar{position:absolute;z-index:30;top:0;left:0;width:100%;color:#fff}
+    :root{--announcement-height:42px}
+    .announcement-bar{position:relative;z-index:50;min-height:var(--announcement-height);padding:0 56px;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid #c3c8cd;background:linear-gradient(110deg,#c9ced3 0%,#f8f9fa 27%,#dfe3e7 51%,#fff 72%,#c7cdd2 100%);background-size:220% 100%;animation:announcement-silver 14s ease-in-out infinite alternate;color:#17191b}
+    @keyframes announcement-silver{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+    .announcement-link{display:inline-flex;align-items:center;gap:9px;color:#25282b;font-size:13px;line-height:1.2;text-align:center;transition:color .25s ease}
+    .announcement-link:hover{color:#000}
+    .announcement-link span{font-size:17px;line-height:1}
+    .announcement-dismiss{position:absolute;top:50%;right:22px;width:28px;height:28px;display:grid;place-items:center;transform:translateY(-50%);border:0;border-radius:50%;background:transparent;color:#41464b;font-size:21px;line-height:1;transition:background .2s ease,color .2s ease}
+    .announcement-dismiss:hover{background:rgba(20,24,28,.08);color:#050505}
+    .announcement-dismiss:focus-visible,.announcement-link:focus-visible{outline:2px solid #555e66;outline-offset:3px}
+    .topbar{position:absolute;z-index:30;top:var(--announcement-height,42px);left:0;width:100%;color:#fff}
     .topbar-inner{width:min(var(--max),calc(100% - 84px));height:90px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.17)}
     .brand{display:flex;align-items:center;min-width:150px}
     .brand img{width:104px;height:auto;mix-blend-mode:screen}
@@ -552,7 +561,9 @@
       .footer-bottom span:last-child{text-align:right}
       .footer-signature{height:clamp(145px,46vw,250px);margin-top:12px}
     }
+    @media(max-width:680px){.announcement-bar{padding:0 44px}.announcement-link{font-size:11px}.announcement-dismiss{right:9px}}
     @media(prefers-reduced-motion:reduce){
+      .announcement-bar{animation:none;background-position:50% 50%}
       *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
       [data-reveal]{opacity:1;transform:none}
     }

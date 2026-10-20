@@ -10,6 +10,12 @@ createIcons({
   attrs: { "stroke-width": 1.7 },
 })
 
+const announcementDismiss=document.getElementById('announcement-dismiss');
+announcementDismiss?.addEventListener('click',()=>{
+  document.getElementById('avel-announcement')?.remove();
+  document.documentElement.style.setProperty('--announcement-height','0px');
+});
+
 const setupStage=document.getElementById('setup-visual-body');
 if(setupStage){
   const setupSvg=setupStage.querySelector('.setup-lines');
