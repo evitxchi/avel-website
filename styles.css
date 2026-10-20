@@ -4,6 +4,7 @@
 @font-face{font-family:YDGothic;src:url("/fonts/YDGothic-130-Pro.ttf") format("truetype");font-display:swap}
 @font-face{font-family:CarbonPlus;src:url("/fonts/CarbonPlus-Light.otf") format("opentype");font-style:normal;font-weight:300;font-display:swap}
     :root{--black:#050505;--ink:#111214;--white:#fff;--silver:#d9dde1;--silver-mid:#a8adb3;--silver-soft:#f0f1f2;--line:#dedfe1;--muted:#777b80;--canvas:#f5f5f6;--ease:cubic-bezier(.19,1,.22,1);--max:1380px}
+    #operations[hidden],#menu-partners[hidden],#footer-partner[hidden]{display:none!important}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:84px}
     body{margin:0;background:var(--white);color:var(--ink);font-family:YDGothic,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
