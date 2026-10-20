@@ -119,12 +119,32 @@
               <div id="flight-rail-root" aria-live="off"></div>
             </section>
 
-            <aside class="assistant-panel">
-              <div class="assistant-top"><i data-lucide="x"></i></div>
-              <div class="assistant-content"><div class="assistant-kicker">Earlier conversation</div><div class="assistant-message"><span>What would you like to coordinate across your operation?</span></div></div>
-              <div id="assistant-activity-root"></div>
-              <div class="assistant-input">Ask about your fleet, trips or crew…<div class="assistant-controls"><span class="assistant-chip">Ask Avel</span><span class="assistant-chip">Assisted</span><span class="assistant-submit">Send</span></div></div>
-              <div class="assistant-note">Assisted · Approve an exact plan before execution.</div>
+            <aside class="assistant-panel" aria-label="Avel chat preview">
+              <div class="assistant-top" aria-label="Conversation tools">
+                <span class="assistant-tool" aria-label="Conversation history"><i data-lucide="messages-square"></i></span>
+                <span class="assistant-tool is-muted" aria-label="New conversation"><i data-lucide="pencil"></i></span>
+                <span class="assistant-tool" aria-label="Expand chat"><i data-lucide="expand"></i></span>
+                <span class="assistant-tool" aria-label="Open chat"><i data-lucide="external-link"></i></span>
+                <span class="assistant-tool" aria-label="Close chat"><i data-lucide="x"></i></span>
+              </div>
+              <div class="assistant-content">
+                <div class="assistant-welcome">
+                  <span id="assistant-orb-root" class="assistant-orb" aria-hidden="true"></span>
+                  <p>What do you need to know about your operation?</p>
+                </div>
+              </div>
+              <div class="assistant-input" aria-label="Example Avel chat prompt">
+                <div class="assistant-question" id="assistant-question-text" aria-live="off"></div>
+                <div class="assistant-controls" aria-hidden="true">
+                  <span class="assistant-add"><i data-lucide="plus"></i></span>
+                  <span class="assistant-chip">Ask Avel<i data-lucide="chevron-down"></i></span>
+                  <span class="assistant-chip assistant-mode-chip">Autonomous<i data-lucide="chevron-down"></i></span>
+                  <span class="assistant-control-spacer"></span>
+                  <span class="assistant-microphone"><i data-lucide="mic"></i></span>
+                  <span class="assistant-submit"><i data-lucide="arrow-up"></i></span>
+                </div>
+              </div>
+              <div class="assistant-note">Autonomous · Routine work runs within your policy.</div>
             </aside>
           </div>
         </div>

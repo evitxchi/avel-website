@@ -1,6 +1,6 @@
 import "../main.js"
 import { createRoot } from "react-dom/client"
-import { useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useLayoutEffect, useRef } from "react"
 import { createElement as createLucideElement, Plane } from "lucide"
 import { ThinkingOrb } from "thinking-orbs"
 import { Globe } from "../components/ui/cobe-globe"
@@ -198,57 +198,9 @@ function FlightDirection() {
   return <span className="flight-direction" ref={iconRoot} aria-hidden="true" />
 }
 
-const agentSteps = [
-  "Searching Avel project files",
-  "Reviewing flight and fleet context",
-  "Formulating route options",
-  "Drafting a clear response",
-]
-
-function AssistantActivity() {
-  const [step, setStep] = useState(0)
-  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches)
-
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)")
-    const update = () => setReducedMotion(preference.matches)
-    preference.addEventListener("change", update)
-    return () => preference.removeEventListener("change", update)
-  }, [])
-
-  useEffect(() => {
-    if (reducedMotion) return
-    const timer = window.setInterval(() => setStep((current) => (current + 1) % agentSteps.length), 1900)
-    return () => window.clearInterval(timer)
-  }, [reducedMotion])
-
-  const recentSteps = Array.from({ length: agentSteps.length }, (_, index) => {
-    const stepIndex = (step - index + agentSteps.length) % agentSteps.length
-    return { text: agentSteps[stepIndex], active: index === 0, key: `${stepIndex}-${step}` }
-  })
-
-  return (
-    <div className="agent-activity" aria-label="Avel One activity">
-      <div className="agent-activity-head">
-        <span className="agent-orb"><ThinkingOrb state="solving" size={64} speed={0.8} paused={reducedMotion} /></span>
-        <span className="agent-activity-title"><strong>Avel One</strong><small>Thinking through your request</small></span>
-      </div>
-      <ol className="agent-activity-feed" aria-live="polite">
-        {recentSteps.map((item) => (
-          <li className={item.active ? "is-current" : ""} key={item.key}>
-            <span className="agent-activity-pulse" aria-hidden="true" />
-            <span>{item.text}</span>
-            {item.active && <small>Now</small>}
-          </li>
-        ))}
-      </ol>
-    </div>
-  )
-}
-
 const globeRoot = document.getElementById("network-globe-root")
 const flightRailRoot = document.getElementById("flight-rail-root")
-const assistantActivityRoot = document.getElementById("assistant-activity-root")
+const assistantOrbRoot = document.getElementById("assistant-orb-root")
 const setupThinkingOrbRoot = document.getElementById("setup-thinking-orb")
 const globeSpeed = 0.00125
 const globeTurnMs = 2 * Math.PI * 16.67 / globeSpeed
@@ -267,7 +219,16 @@ if (setupThinkingOrbRoot) {
 if (globeRoot && flightRailRoot) {
   const globe = createRoot(globeRoot)
   const rail = createRoot(flightRailRoot)
-  if (assistantActivityRoot) createRoot(assistantActivityRoot).render(<AssistantActivity />)
+  if (assistantOrbRoot) {
+    createRoot(assistantOrbRoot).render(
+      <ThinkingOrb
+        state="solving"
+        size={64}
+        speed={0.65}
+        paused={window.matchMedia("(prefers-reduced-motion: reduce)").matches}
+      />,
+    )
+  }
   let activeRoute = 0
   let routeCycle = 0
 
