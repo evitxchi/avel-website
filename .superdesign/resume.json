@@ -15,7 +15,9 @@
         "avel-logo-black",
         "avel-logo-white",
         "avel-yd-gothic-130-pro",
-        "avel-icon-black"
+        "avel-icon-black",
+        "9695a274-13d1-4a26-b7cc-11bbc4e01520",
+        "615de3bf-9945-4fc4-a1eb-fb85fae54e81"
       ],
       "brandAssets": {
         "logo": {
@@ -31,26 +33,27 @@
         ".superdesign/design-system.md",
         ".superdesign/avel-product-context.md",
         "index.html",
-        "styles.css",
+        "styles.css:1:160",
+        "styles.css:197:559",
         "main.js"
       ],
       "fingerprints": {
         ".superdesign/design-system.md": "6c77f66e0829c0a99a3a99195eeada8f00ccfd7b32b0f77f5e8b182a50ff148e",
         ".superdesign/avel-product-context.md": "46388d82a2dcc9540e6acc82e4972da007c6b6df3be71f3eaf369d957ad0b1b3",
-        "index.html": "b9fea46064d0834c784918fdc0f87b1683a1c35d3427ab59ba74c116bf4b95c5",
-        "styles.css": "971f9466a14dbcdc6257902d3e1cee90e1c4981498dcb129742872013e03b799",
-        "main.js": "0d99799536dad35de301ad648acca6908b156e3c84873f6ae62a713687bf533a"
+        "index.html": "f1653f9fe96eda5f0af477449c3379374e893e4ff4e5151bfc01c3f18ae325e1",
+        "styles.css": "092fff293815dfd8d215e9560c5d694ca5e7aa65fb8f4a3b577c57c38cd5e6f8",
+        "main.js": "34217fdcd2c469c8c1b88a12542811feaf656aa8a301d961cdbb9ef6bacfaf29"
       },
       "components": [],
       "drafts": {
         "a70626fb-ff5a-4090-aad6-987185f39e3f": {
           "title": "Avel Private Aviation Platform",
-          "visualDirection": "Avel monochrome aviation operations with YD Gothic, moving silver hero light, Lucide icons, and sample network dashboard",
-          "currentVersion": 6
+          "visualDirection": "Avel monochrome aviation site with a dismissible silver-gradient agent announcement and centered brand identity strip.",
+          "currentVersion": 7
         }
       },
-      "updatedAt": "2026-09-26T23:00:03Z"
+      "updatedAt": "2026-10-20T05:31:22Z"
     }
   },
-  "updatedAt": "2026-09-26T23:12:00Z"
+  "updatedAt": "2026-10-20T05:31:22Z"
 }
