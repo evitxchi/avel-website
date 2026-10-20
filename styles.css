@@ -283,6 +283,7 @@
     .module-card.reverse{grid-template-columns:1.16fr .84fr}
     .module-card.reverse .module-copy{order:2}
     .module-card.reverse .module-visual{order:1}
+    .module-card.reverse#setup{grid-template-columns:minmax(0,1.75fr) minmax(280px,.7fr);gap:42px}
     .module-copy{max-width:430px}
     .module-tag{display:inline-flex;align-items:center;gap:9px;color:#60656a;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
     .module-tag svg{width:15px;height:15px;color:#2b2e31}
@@ -353,6 +354,8 @@
     .setup-integration-pill{display:flex;align-items:center;gap:4px;min-width:0;min-height:25px;padding:4px 5px;border:1px solid rgba(206,211,219,.8);border-radius:7px;background:rgba(255,255,255,.76);color:#41464d;font-size:7.5px;font-weight:550;white-space:nowrap}
     .integration-mark{width:14px;height:14px;flex:none}
     .setup-system-integrations{margin-top:8px}
+    .setup-system-logo{display:grid;place-items:center;min-width:0;min-height:25px;padding:4px 6px;border:1px solid rgba(206,211,219,.8);border-radius:7px;background:rgba(255,255,255,.76)}
+    .setup-system-logo img{display:block;width:100%;height:17px;object-fit:contain}
     .setup-system-wordmark{display:flex;align-items:center;justify-content:center;min-width:0;min-height:25px;padding:3px 5px;border:1px solid rgba(206,211,219,.8);border-radius:7px;background:rgba(255,255,255,.76);color:#343941;font-size:9px;font-weight:650;letter-spacing:-.25px;white-space:nowrap}
     .avinode-wordmark{font-weight:700;letter-spacing:-.55px}
     .fl3xx-wordmark{font-weight:750;letter-spacing:.2px}
@@ -519,6 +522,18 @@
       .module-copy{max-width:620px}
       .module-visual{min-height:310px}
       .footer-main{gap:32px}
+    }
+    @media(max-width:1120px){
+      .module-card.reverse#setup{grid-template-columns:minmax(0,1fr);gap:30px}
+      .module-card.reverse#setup .module-copy,.module-card.reverse#setup .module-visual{order:initial}
+    }
+    @media(max-width:680px){
+      .setup-visual-viewport{overflow-x:hidden}
+      .setup-visual-body{grid-template-columns:minmax(0,1fr);grid-template-areas:"core" "left" "right" "team";row-gap:11px;min-width:0;padding:13px}
+      .setup-lines{display:none}
+      .setup-core-card{width:min(100%,280px);justify-self:center}
+      .setup-people-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .setup-roster-person{font-size:8px}
     }
     @media(max-width:560px){
       .skydeck-badge{max-width:92%;margin-top:22px;padding:8px 12px;gap:9px}
