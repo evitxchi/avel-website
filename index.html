@@ -297,12 +297,13 @@
                       <header class="setup-node-head">
                         <span class="setup-node-icon"><i data-lucide="mail"></i></span>
                         <strong>Email &amp; messaging</strong>
-                        <span class="setup-state">Offline</span>
+                        <span class="setup-state setup-state-online">Connected</span>
                       </header>
-                      <div class="setup-node-well">
-                        <span class="setup-metal-orb" aria-hidden="true"></span>
-                        <span class="setup-well-label">Not connected</span>
-                        <span class="setup-dark-action">Connect</span>
+                      <div class="setup-integrations" aria-label="Connected communication integrations">
+                        <span class="setup-integration-pill"><svg class="integration-mark whatsapp-mark" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="9.5" r="8" fill="#25D366"/><path d="m5.6 15.9.9-2.5a5.8 5.8 0 1 1 2.8 1.2l-3.7 1.3Z" fill="#25D366"/><path d="M7.5 6.3c.2-.3.3-.4.6-.4h.5c.2 0 .3.1.4.3l.5 1.3c.1.2.1.4-.1.6l-.5.6c-.1.1-.2.3-.1.5.4.7 1.1 1.4 1.9 1.8.2.1.4.1.5-.1l.6-.6c.1-.2.3-.2.5-.1l1.3.6c.2.1.3.2.3.4 0 .3-.2.9-.5 1.2-.4.4-.9.6-1.4.5-.4 0-.9-.2-1.3-.4-2.3-1-3.8-3.4-3.9-3.6-.1-.2-.6-.8-.6-1.6 0-.7.3-1.1.5-1.3Z" fill="#fff"/></svg><span>WhatsApp</span></span>
+                        <span class="setup-integration-pill"><svg class="integration-mark slack-mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.1 2.2a1.8 1.8 0 1 1 3.5 0v4.2H7.1V2.2Zm4.4 0a1.8 1.8 0 1 1 3.5 0v4.2h-3.5V2.2Z" fill="#36C5F0"/><path d="M17.8 7.1a1.8 1.8 0 1 1 0 3.5h-4.2V7.1h4.2Zm0 4.4a1.8 1.8 0 1 1 0 3.5h-4.2v-3.5h4.2Z" fill="#2EB67D"/><path d="M12.9 17.8a1.8 1.8 0 1 1-3.5 0v-4.2h3.5v4.2Zm-4.4 0a1.8 1.8 0 1 1-3.5 0v-4.2h3.5v4.2Z" fill="#ECB22E"/><path d="M2.2 12.9a1.8 1.8 0 1 1 0-3.5h4.2v3.5H2.2Zm0-4.4a1.8 1.8 0 1 1 0-3.5h4.2v3.5H2.2Z" fill="#E01E5A"/></svg><span>Slack</span></span>
+                        <span class="setup-integration-pill" aria-label="Microsoft Teams"><svg class="integration-mark teams-mark" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="4" width="11" height="13" rx="2" fill="#6264A7"/><circle cx="15.6" cy="5.5" r="2.1" fill="#8B8CC7"/><path d="M13.5 8h4.3v6.1c0 1.3-.9 2.2-2.2 2.2h-2.1V8Z" fill="#8B8CC7"/><path d="M4.1 7h6.8v1.7H8.5v5.5h-2V8.7H4.1V7Z" fill="#fff"/></svg><span>Teams</span></span>
+                        <span class="setup-integration-pill"><svg class="integration-mark gmail-mark" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5v10.5M17 5v10.5" fill="none" stroke="#34A853" stroke-width="2.4" stroke-linecap="round"/><path d="M3 5l7 5.4L17 5" fill="none" stroke="#EA4335" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 8.5l4.6 3.6M17 8.5l-4.6 3.6" fill="none" stroke="#4285F4" stroke-width="2.4" stroke-linecap="round"/><path d="M17 5v3.5" stroke="#FBBC04" stroke-width="2.4"/></svg><span>Gmail</span></span>
                       </div>
                     </article>
                     <span class="setup-add-action"><i data-lucide="plus"></i> Add a channel</span>
@@ -324,19 +325,50 @@
                       <header class="setup-node-head">
                         <span class="setup-node-icon"><i data-lucide="plane"></i></span>
                         <strong>Flight operations</strong>
+                        <span class="setup-state setup-state-online">Connected</span>
                       </header>
-                      <span class="setup-connect-action"><i data-lucide="plus"></i> Connect an FMS</span>
+                      <div class="setup-integrations setup-system-integrations" aria-label="Connected flight operation systems">
+                        <span class="setup-system-wordmark avinode-wordmark">Avinode</span>
+                        <span class="setup-system-wordmark fl3xx-wordmark">FL3XX</span>
+                      </div>
                     </article>
-                    <article class="setup-node setup-system-add" id="setup-add-node">
-                      <span class="setup-node-icon"><i data-lucide="workflow"></i></span>
-                      <strong>Other systems</strong>
-                      <span class="setup-dark-action">Add connection</span>
+                    <article class="setup-node" id="setup-maintenance-node">
+                      <header class="setup-node-head">
+                        <span class="setup-node-icon"><i data-lucide="settings"></i></span>
+                        <strong>Maintenance</strong>
+                        <span class="setup-state setup-state-online">Connected</span>
+                      </header>
+                      <div class="setup-integrations setup-system-integrations" aria-label="Connected maintenance system">
+                        <span class="setup-system-wordmark veryon-wordmark"><span aria-hidden="true">V</span> Veryon</span>
+                      </div>
                     </article>
+                    <span class="setup-add-action"><i data-lucide="plus"></i> Add a connection</span>
                   </section>
-                  <section class="setup-team-card" id="setup-team-node" aria-label="Team members">
-                    <span class="setup-node-icon"><i data-lucide="users"></i></span>
-                    <div class="setup-team-copy"><strong>Team members</strong><small>People and AI employees, managed together</small></div>
-                    <span>Open agent library</span>
+                  <section class="setup-team-card" id="setup-team-node" aria-label="Team members and agents">
+                    <header class="setup-team-header">
+                      <span class="setup-node-icon"><i data-lucide="users"></i></span>
+                      <div class="setup-team-copy"><strong>Team members</strong><small>People and AI employees, managed together</small></div>
+                      <span class="setup-count-pill">5 people · 3 agents</span>
+                    </header>
+                    <div class="setup-roster-group">
+                      <span class="setup-roster-label">People</span>
+                      <div class="setup-people-grid">
+                        <span class="setup-roster-person"><img src="/assets/agent-avatars/01-short-loose-curls.webp" alt=""/><span>Evan · Owner</span></span>
+                        <span class="setup-roster-person"><img src="/assets/agent-avatars/04-tight-coily-halo.webp" alt=""/><span>Flight Ops</span></span>
+                        <span class="setup-roster-person"><img src="/assets/agent-avatars/09-shoulder-waves.webp" alt=""/><span>Charter</span></span>
+                        <span class="setup-roster-person"><img src="/assets/agent-avatars/11-long-straight-center.webp" alt=""/><span>Dispatch</span></span>
+                        <span class="setup-roster-person"><img src="/assets/agent-avatars/14-high-bun.webp" alt=""/><span>Maintenance</span></span>
+                      </div>
+                    </div>
+                    <div class="setup-roster-group setup-agent-roster">
+                      <span class="setup-roster-label">Agents</span>
+                      <div class="setup-agents-grid">
+                        <span class="setup-roster-agent"><img src="/assets/agent-avatars/20-double-braids.webp" alt=""/><span>Avel One</span><small>Orchestrator</small></span>
+                        <span class="setup-roster-agent"><img src="/assets/agent-avatars/04-tight-coily-halo.webp" alt=""/><span>Sales &amp; Revenue</span><small>Domain lead</small></span>
+                        <span class="setup-roster-agent"><img src="/assets/agent-avatars/05-sleek-side-bob.webp" alt=""/><span>Trip Operations</span><small>Domain lead</small></span>
+                      </div>
+                    </div>
+                    <span class="setup-team-library">Open agent library</span>
                   </section>
                 </div>
               </div>

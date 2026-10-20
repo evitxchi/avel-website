@@ -60,7 +60,7 @@ if(setupStage){
   const setupEdges=[
     {target:'setup-email-node',side:'left',color:'#4c7dff'},
     {target:'setup-fms-node',side:'right',color:'#14b8a6'},
-    {target:'setup-add-node',side:'right',color:'#9b6bff'},
+    {target:'setup-maintenance-node',side:'right',color:'#9b6bff'},
     {target:'setup-team-node',side:'down',color:'#f59e0b'},
   ];
   const svgNs='http://www.w3.org/2000/svg';

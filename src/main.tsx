@@ -26,6 +26,7 @@ type FlightLeg = {
 
 type RouteSet = {
   id: string
+  focusLongitude: number
   airports: Airport[]
   labelOffsets: [number, number][]
   legs: FlightLeg[]
@@ -64,6 +65,7 @@ const airports = {
 const routeSets: RouteSet[] = [
   {
     id: "north-america",
+    focusLongitude: 265,
     airports: [airports.TEB, airports.ORD, airports.SFO],
     labelOffsets: [[-46, -27], [46, 25], [30, -20]],
     legs: [
@@ -73,6 +75,7 @@ const routeSets: RouteSet[] = [
   },
   {
     id: "pacific-crossing",
+    focusLongitude: 200,
     airports: [airports.SFO, airports.HNL, airports.HND],
     labelOffsets: [[-42, -26], [0, 29], [42, -22]],
     legs: [
@@ -82,6 +85,7 @@ const routeSets: RouteSet[] = [
   },
   {
     id: "east-asia",
+    focusLongitude: 123,
     airports: [airports.HND, airports.ICN, airports.SIN],
     labelOffsets: [[-42, -25], [0, 29], [42, -21]],
     legs: [
@@ -91,6 +95,7 @@ const routeSets: RouteSet[] = [
   },
   {
     id: "asia-and-gulf",
+    focusLongitude: 76,
     airports: [airports.SIN, airports.BOM, airports.DXB],
     labelOffsets: [[-42, -25], [0, 29], [42, -21]],
     legs: [
@@ -100,6 +105,7 @@ const routeSets: RouteSet[] = [
   },
   {
     id: "europe-and-gulf",
+    focusLongitude: 19,
     airports: [airports.DXB, airports.CDG, airports.LHR],
     labelOffsets: [[42, -25], [0, 29], [-42, -22]],
     legs: [
@@ -109,6 +115,7 @@ const routeSets: RouteSet[] = [
   },
   {
     id: "atlantic-crossing",
+    focusLongitude: 311,
     airports: [airports.LHR, airports.JFK, airports.TEB],
     labelOffsets: [[-45, -25], [0, 29], [45, -22]],
     legs: [
@@ -117,6 +124,8 @@ const routeSets: RouteSet[] = [
     ],
   },
 ]
+
+routeSets.sort((left, right) => left.focusLongitude - right.focusLongitude)
 
 function markersFor(route: RouteSet): GlobeMarker[] {
   const activeLabels = new Map(route.airports.map((airport, index) => [airport.code, route.labelOffsets[index]]))
@@ -202,8 +211,7 @@ const globeRoot = document.getElementById("network-globe-root")
 const flightRailRoot = document.getElementById("flight-rail-root")
 const assistantOrbRoot = document.getElementById("assistant-orb-root")
 const setupThinkingOrbRoot = document.getElementById("setup-thinking-orb")
-const globeSpeed = 0.00125
-const globeTurnMs = 2 * Math.PI * 16.67 / globeSpeed
+const globeSpeed = 0.001
 
 if (setupThinkingOrbRoot) {
   createRoot(setupThinkingOrbRoot).render(
@@ -236,6 +244,7 @@ if (globeRoot && flightRailRoot) {
     const route = routeSets[routeIndex]
     globe.render(
       <Globe
+        initialPhi={route.focusLongitude * Math.PI / 180}
         markers={markersFor(route)}
         arcs={arcsFor(route)}
         markerColor={[0.97, 0.98, 1]}
@@ -259,9 +268,22 @@ if (globeRoot && flightRailRoot) {
   }
 
   showRoute(activeRoute)
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) window.setInterval(() => {
-    activeRoute = (activeRoute + 1) % routeSets.length
-    if (activeRoute === 0) routeCycle += 1
-    showRoute(activeRoute)
-  }, globeTurnMs / routeSets.length)
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const advanceRoute = () => {
+      const nextRoute = (activeRoute + 1) % routeSets.length
+      const currentLongitude = routeSets[activeRoute].focusLongitude
+      const nextLongitude = routeSets[nextRoute].focusLongitude + (nextRoute === 0 ? 360 : 0)
+      const radiansToNextRoute = (nextLongitude - currentLongitude) * Math.PI / 180
+      const travelDuration = radiansToNextRoute * 16.67 / globeSpeed
+
+      window.setTimeout(() => {
+        activeRoute = nextRoute
+        if (activeRoute === 0) routeCycle += 1
+        showRoute(activeRoute)
+        advanceRoute()
+      }, travelDuration)
+    }
+
+    advanceRoute()
+  }
 }

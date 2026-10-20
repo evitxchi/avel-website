@@ -24,6 +24,7 @@ interface GlobeProps {
   markers?: GlobeMarker[]
   arcs?: GlobeArc[]
   className?: string
+  initialPhi?: number
   markerColor?: [number, number, number]
   baseColor?: [number, number, number]
   arcColor?: [number, number, number]
@@ -45,6 +46,7 @@ export function Globe({
   markers = [],
   arcs = [],
   className = "",
+  initialPhi = -0.35,
   markerColor = [0.94, 0.95, 0.97],
   baseColor = [0.28, 0.29, 0.3],
   arcColor = [0.82, 0.85, 0.88],
@@ -128,7 +130,7 @@ export function Globe({
     let globe: ReturnType<typeof createGlobe> | null = null
     let animationId = 0
     let currentWidth = 0
-    let phi = -0.35
+    let phi = initialPhi
     let previousFrame = 0
 
     const draw = (frameTime: number) => {
@@ -245,7 +247,7 @@ export function Globe({
       cancelAnimationFrame(animationId)
       globe?.destroy()
     }
-  }, [markerColor, baseColor, arcColor, glowColor, dark, mapBrightness, markerSize, markerElevation, arcWidth, arcHeight, speed, theta, scale, diffuse, mapPointCount])
+  }, [markerColor, baseColor, arcColor, glowColor, dark, mapBrightness, markerSize, markerElevation, arcWidth, arcHeight, speed, theta, scale, diffuse, mapPointCount, initialPhi])
 
   return (
     <div className={`cobe-globe ${className}`}>
