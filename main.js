@@ -1,12 +1,12 @@
 import {
   Archive, ArrowRight, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Expand, ExternalLink, Folder,
-  Columns3, FileText, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare,
-  MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Route, Search, Settings,
+  Columns3, CreditCard, FileText, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare,
+  MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Receipt, Route, Search, Settings,
   UserRound, Users, Workflow, Wrench, X, createIcons,
 } from "lucide"
 
 createIcons({
-  icons: { Archive, ArrowRight, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Columns3, Expand, ExternalLink, FileText, Folder, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare, MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Route, Search, Settings, UserRound, Users, Workflow, Wrench, X },
+  icons: { Archive, ArrowRight, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Columns3, CreditCard, Expand, ExternalLink, FileText, Folder, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare, MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Receipt, Route, Search, Settings, UserRound, Users, Workflow, Wrench, X },
   attrs: { "stroke-width": 1.7 },
 })
 
