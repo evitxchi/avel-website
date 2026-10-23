@@ -31,10 +31,10 @@
 .flow-task-body>span:not(.flow-task-status){flex:1;min-width:0;font-size:12px;line-height:1.4;letter-spacing:-.01em}
 .flow-task-icon{width:18px;height:18px;flex:none;color:#818181;stroke-width:1.5}
 .flow-task-status{width:94px;max-width:30%;margin-left:auto;flex:none;color:#737373;font-size:10px;line-height:1.35;text-align:right;transition:color .3s ease}
-.flow-status-enter{animation:flow-status-in .32s ease both}
+.flow-status-enter{animation:flow-status-in .18s ease both}
 @keyframes flow-status-in{from{opacity:.2;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 .flow-pending-ring{width:19px;height:19px;border:2px dashed #d5d5d5;border-radius:50%}
-.flow-spinner{position:absolute;inset:0;width:21px;height:21px;display:none;stroke:#789076;stroke-width:1.8;stroke-linecap:round;animation:flow-think 1.2s steps(12) infinite}
+.flow-spinner{position:absolute;inset:0;width:21px;height:21px;display:none;stroke:#789076;stroke-width:1.8;stroke-linecap:round;animation:flow-think .72s steps(12) infinite}
 @keyframes flow-think{to{transform:rotate(360deg)}}
 .flow-check{width:20px;height:20px;display:none;place-items:center;border-radius:50%;background:#679267;color:#fff}
 .flow-check svg,.flow-outcome-check svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -53,7 +53,7 @@
 .flow-pause{position:absolute;right:14px;bottom:12px;width:24px;height:24px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:#b5b5b5;font-size:12px}
 .flow-pause:hover{background:#e5e5e5;color:#666}.flow-pause:focus-visible{outline:1px solid #777}
 .flow-pause svg{width:13px;height:13px;stroke-width:1.5}
-.flow-enter>.flow-message{animation:flow-appear .5s ease both}.flow-enter>.flow-workcard{animation:flow-appear .5s .18s ease both}
+.flow-enter>.flow-message{animation:flow-appear .3s ease both}.flow-enter>.flow-workcard{animation:flow-appear .3s .08s ease both}
 @keyframes flow-appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .flow-stage.is-paused .flow-spinner{animation-play-state:paused!important}
 @media(max-width:1120px){.flow-layout{grid-template-columns:minmax(230px,.32fr) minmax(0,.68fr);gap:35px}.flow-stage{padding:40px 24px}.flow-tab{font-size:18px}.flow-task-body{gap:7px;padding:11px 9px}.flow-task-body>span:not(.flow-task-status){font-size:11px}}
