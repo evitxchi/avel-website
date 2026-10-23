@@ -1,4 +1,6 @@
 import "../main.js"
+import "./workflow-showcase"
+import "./inbox-demo"
 import { createRoot } from "react-dom/client"
 import { useLayoutEffect, useRef } from "react"
 import { createElement as createLucideElement, Plane } from "lucide"

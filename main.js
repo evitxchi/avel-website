@@ -1,12 +1,12 @@
 import {
-  Archive, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Expand, ExternalLink, Folder,
-  Columns3, FileText, Inbox, LayoutDashboard, Mail, Menu, MessageCircle, Mic, MessagesSquare,
-  MoreHorizontal, Orbit, Pencil, Plane, Plug, Plus, Route, Search, Settings,
-  Users, Workflow, X, createIcons,
+  Archive, ArrowRight, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Expand, ExternalLink, Folder,
+  Columns3, FileText, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare,
+  MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Route, Search, Settings,
+  UserRound, Users, Workflow, Wrench, X, createIcons,
 } from "lucide"
 
 createIcons({
-  icons: { Archive, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Columns3, Expand, ExternalLink, FileText, Folder, Inbox, LayoutDashboard, Mail, Menu, MessageCircle, Mic, MessagesSquare, MoreHorizontal, Orbit, Pencil, Plane, Plug, Plus, Route, Search, Settings, Users, Workflow, X },
+  icons: { Archive, ArrowRight, ArrowUp, CalendarDays, Check, ChevronDown, CircleDot, Columns3, Expand, ExternalLink, FileText, Folder, Headset, Inbox, LayoutDashboard, Mail, MapPin, Menu, MessageCircle, Mic, MessagesSquare, MoreHorizontal, Orbit, Pencil, Phone, Plane, Plug, Plus, Route, Search, Settings, UserRound, Users, Workflow, Wrench, X },
   attrs: { "stroke-width": 1.7 },
 })
 
@@ -134,7 +134,6 @@ document.querySelectorAll('.setup-mode-row').forEach(row=>{
     });
   }));
 });
-
 
     const navItems=[...document.querySelectorAll('.nav-item')];
     navItems.forEach(item=>{const trigger=item.querySelector('.nav-trigger');trigger.addEventListener('click',()=>{const isOpen=item.classList.contains('is-open');navItems.forEach(other=>{other.classList.remove('is-open');other.querySelector('.nav-trigger').setAttribute('aria-expanded','false')});if(!isOpen){item.classList.add('is-open');trigger.setAttribute('aria-expanded','true')}})});

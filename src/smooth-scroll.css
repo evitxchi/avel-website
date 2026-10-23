@@ -1,0 +1,3 @@
+/* Lenis animates native document scrolling; browser easing would compete. */
+html.lenis{scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}

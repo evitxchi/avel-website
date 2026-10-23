@@ -189,24 +189,26 @@
         </div>
       </section>
 
+      <section class="section aviation-workflows" id="workflows" aria-labelledby="workflow-heading">
+        <div class="container flow-layout">
+          <div class="flow-sidebar">
+            <h2 id="workflow-heading">Avel keeps every<br />operation moving.</h2>
+            <div class="flow-tabs" role="tablist" aria-label="Aviation workflows" aria-orientation="vertical">
+              <button id="flow-tab-sales" class="flow-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="flow-panel" tabindex="0" data-flow-tab="0"><i data-lucide="plane" aria-hidden="true"></i><span>Brokerage &amp; sales</span></button>
+              <button id="flow-tab-maintenance" class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-panel" tabindex="-1" data-flow-tab="1"><i data-lucide="wrench" aria-hidden="true"></i><span>Maintenance</span></button>
+              <button id="flow-tab-crew" class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-panel" tabindex="-1" data-flow-tab="2"><i data-lucide="users" aria-hidden="true"></i><span>Pilot, team &amp; FBO</span></button>
+              <button id="flow-tab-review" class="flow-tab" type="button" role="tab" aria-selected="false" aria-controls="flow-panel" tabindex="-1" data-flow-tab="3"><i data-lucide="user-round" aria-hidden="true"></i><span>Human in the loop</span></button>
+            </div>
+          </div>
+          <div class="flow-stage" id="flow-panel" role="tabpanel" aria-labelledby="flow-tab-sales" tabindex="0"><div class="flow-sequence" id="flow-sequence"></div></div>
+        </div>
+      </section>
+
       <section class="section lead-system" id="inbox">
         <div class="container">
           <div class="center-heading" data-reveal><span class="eyebrow eyebrow-dark">Shared operational context</span><h2>Every request, message, and trip<br /><span>In the same conversation.</span></h2></div>
           <div class="lead-layout">
-            <div class="inbox-panel" data-reveal>
-              <div class="inbox-top"><strong>Shared inbox</strong><span>Connected workspace</span></div>
-              <div class="inbox-columns">
-                <div class="inbox-folders"><div class="folder-label">Mailbox</div><div class="folder-row active"><i data-lucide="inbox"></i> All messages <small>08</small></div><div class="folder-row"><i data-lucide="mail"></i> Email <small>05</small></div><div class="folder-row"><i data-lucide="message-circle"></i> Requests <small>03</small></div><div class="folder-row"><i data-lucide="plane"></i> Trips</div><div class="folder-row"><i data-lucide="archive"></i> Archived</div></div>
-                <div class="message-list">
-                  <div class="message-row is-unread"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/03-curious.png" /><source type="image/webp" srcset="/assets/personality-avatars/03-curious.webp" /><img src="/assets/personality-avatars/03-curious.png" alt="" /></picture></span><div><strong>Marina Alvarez</strong><p>Charter request · FLL to TEB · 3 passengers</p></div><time>10:42</time></div>
-                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/18-focused.png" /><source type="image/webp" srcset="/assets/personality-avatars/18-focused.webp" /><img src="/assets/personality-avatars/18-focused.png" alt="" /></picture></span><div><strong>Jordan Wells</strong><p>Updated schedule for the Palm Beach departure</p></div><time>09:18</time></div>
-                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/05-serious.png" /><source type="image/webp" srcset="/assets/personality-avatars/05-serious.webp" /><img src="/assets/personality-avatars/05-serious.png" alt="" /></picture></span><div><strong>Operations desk</strong><p>Trip notes attached for review</p></div><time>Yesterday</time></div>
-                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/08-studious.png" /><source type="image/webp" srcset="/assets/personality-avatars/08-studious.webp" /><img src="/assets/personality-avatars/08-studious.png" alt="" /></picture></span><div><strong>Charter broker</strong><p>Aircraft availability and routing details</p></div><time>Yesterday</time></div>
-                  <div class="message-row"><span class="message-avatar" aria-hidden="true"><picture><source media="(prefers-reduced-motion: reduce)" srcset="/assets/personality-avatars/11-thoughtful.png" /><source type="image/webp" srcset="/assets/personality-avatars/11-thoughtful.webp" /><img src="/assets/personality-avatars/11-thoughtful.png" alt="" /></picture></span><div><strong>Flight coordination</strong><p>New request added to the workspace</p></div><time>Mon</time></div>
-                </div>
-              </div>
-              <div class="match-card"><span class="eyebrow">Trip context</span><h4>FLL to TEB</h4><div class="match-route"><i data-lucide="plane"></i> Citation Latitude</div><div class="match-divider"></div><div class="match-meta"><span>Passengers <strong>03</strong></span><span>Trip status <strong>Review</strong></span></div></div>
-            </div>
+            <div id="inbox-demo-root" class="inbox-demo-mount" data-reveal></div>
             <div class="benefit-list" data-reveal>
               <div class="benefit is-open"><button class="benefit-toggle" type="button" aria-expanded="true"><span class="benefit-index">01</span><span class="benefit-title">Keep messages with their operational context</span><span class="benefit-sign">−</span></button><div class="benefit-body"><div><p>Bring email, charter requests, trip notes, and scheduling details into a shared working view.</p></div></div></div>
               <div class="benefit"><button class="benefit-toggle" type="button" aria-expanded="false"><span class="benefit-index">02</span><span class="benefit-title">Connect requests to aircraft and availability</span><span class="benefit-sign">+</span></button><div class="benefit-body"><div><p>Compare an incoming request with fleet, schedule, passenger, and routing constraints.</p></div></div></div>
@@ -287,7 +289,6 @@
               <a id="setup-module-link" class="button button-black" href="https://avel-staging.avelhq.workers.dev/en?view=setup" target="_blank" rel="noopener noreferrer">Explore setup</a>
             </div>
             <div class="module-visual setup-visual" data-reveal>
-              <div class="visual-head"><strong>Workspace map</strong><span>Communication · systems · team</span></div>
               <div class="setup-visual-viewport">
                 <div class="setup-visual-body" id="setup-visual-body">
                   <svg class="setup-lines" aria-hidden="true"></svg>

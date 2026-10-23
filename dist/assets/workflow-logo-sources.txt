@@ -1,0 +1,13 @@
+WhatsApp (workflow-whatsapp.svg)
+https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/whatsapp.svg
+Exact Simple Icons WhatsApp path, brand green #25D366.
+
+Veryon primary black logotype (veryon-primary-black.png)
+https://veryon.com/hubfs/00%20AA%20HubSpot-Files-OrgStructure/Branding/Veryon/Veryon_Primary-Bandmark_Black.png
+
+Veryon mark (workflow-veryon-mark.png)
+https://veryon.com/hubfs/00%20AA%20HubSpot-Files-OrgStructure/Branding/Veryon_RGB_Symbol_Black_Favicon_3.png
+
+Gmail (gmail-logo.png)
+https://www.gstatic.com/images/branding/product/2x/gmail_2020q4_48dp.png
+Official Google product icon.
