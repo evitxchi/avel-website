@@ -4,6 +4,8 @@ import type { IconNode } from "lucide"
 import type { WorkflowStep } from "./workflow-state"
 import { previewForStep, previewIsApproved, paymentIsReceived, billingFigures, finalBillTotal, finalBillBalance } from "./workflow-preview-state"
 import type { PreviewKind } from "./workflow-preview-state"
+import { diagramForStep } from "./workflow-diagram-data"
+import { diagramMarkup, mountWorkflowDiagram, destroyWorkflowDiagram, updateWorkflowDiagram } from "./workflow-diagrams"
 
 const glyph = (node: IconNode) => createElement(node, { "aria-hidden": "true", "stroke-width": 1.5 }).outerHTML
 const money = (amount: number) => `$${amount.toLocaleString("en-US")}`
@@ -71,19 +73,23 @@ function numberChange(element: HTMLElement | null, value: number, motion: boolea
 }
 
 /** All changes are derived from the main workflow clock: no independent loops or timers. */
-export function updateWorkflowPreview(root: HTMLElement, key: string, step: WorkflowStep, motion: boolean): boolean {
+export function updateWorkflowPreview(root: HTMLElement, key: string, step: WorkflowStep, motion: boolean, playing = motion): boolean {
   const kind = previewForStep(key, step)
   root.hidden = kind === null
-  if (!kind) { root.replaceChildren(); root.removeAttribute("data-preview-id"); return false }
+  if (!kind) { destroyWorkflowDiagram(root); root.replaceChildren(); root.removeAttribute("data-preview-id"); return false }
   const task = step.kind === "complete" ? Infinity : step.task
-  const id = `${key}:${kind}:${kind === "messages" && key === "crew" ? task : ""}`
+  const diagram = kind === "diagram" ? diagramForStep(key, step) : undefined
+  const id = `${key}:${kind}:${diagram?.figure ?? (kind === "messages" && key === "crew" ? task : "")}`
   if (root.dataset.previewId !== id) {
+    destroyWorkflowDiagram(root)
     root.dataset.previewId = id
     root.dataset.kind = kind
-    root.innerHTML = render(kind, key, task)
+    root.innerHTML = diagram ? diagramMarkup(diagram) : render(kind, key, task)
+    if (diagram) mountWorkflowDiagram(root, diagram)
     root.classList.remove("fp-enter")
     if (motion) { void root.offsetWidth; root.classList.add("fp-enter") }
   }
+  updateWorkflowDiagram(root, step.kind === "working" ? step.beat : 0, playing)
   const advanced = step.kind !== "working" || step.beat > 0
   root.classList.toggle("fp-static", !motion)
   root.classList.toggle("fp-advanced", advanced)

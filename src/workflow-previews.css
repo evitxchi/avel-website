@@ -111,3 +111,16 @@
 .flow-preview[data-kind="invoice"] .fp-document-route{padding-bottom:4px;margin-bottom:3px}
 .flow-preview[data-kind="invoice"] .fp-line{padding-top:3px;padding-bottom:3px}
 .flow-preview[data-kind="invoice"] .fp-document-total{margin-top:3px;padding-top:5px}
+
+/* Real Hairline figures: opaque white solids, silver edges, one active stroke. */
+.flow-diagram{height:100%;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center;padding:10px 15px 10px 0;gap:3px}
+.flow-diagram-figure{position:relative;width:100%;aspect-ratio:5/4;--hairline-plate:#fff;--hairline-hi:#555f68;--hairline-edge:#a5adb5;--hairline-mid:#c3c9cf;--hairline-lo:#e3e7eb;--hairline-stroke:.85}
+.flow-diagram-figure>svg{position:absolute;inset:0;display:block;width:100%;height:100%}
+.flow-diagram-copy{min-width:0;padding:0 3px 0 0}
+.flow-diagram-copy>strong{display:block;font-size:13px;line-height:1.35;letter-spacing:-.025em;color:#3b4248}
+.flow-diagram-copy>p{margin:8px 0 12px;color:#92999f;font-size:9px;line-height:1.55}
+.flow-diagram-copy dl{margin:0;border-top:1px solid #edf0f2;padding-top:9px}
+.flow-diagram-copy dl>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 7px;margin-top:5px;font-size:8px;line-height:1.4}
+.flow-diagram-copy dt{color:#a0a6ac}.flow-diagram-copy dd{margin:0;color:#646d76;font-variant-numeric:tabular-nums}
+.flow-stage.is-paused .flow-diagram-figure{pointer-events:none}
+@media(max-width:560px){.flow-diagram{grid-template-columns:1fr;grid-template-rows:154px auto;gap:0;padding:0 13px 11px;text-align:center}.flow-diagram-figure{width:193px;max-width:100%;justify-self:center}.flow-diagram-copy{padding:0}.flow-diagram-copy>strong{font-size:12px}.flow-diagram-copy>p{margin:4px auto 0;max-width:250px;font-size:9px;line-height:1.4}.flow-diagram-copy dl{display:none}}

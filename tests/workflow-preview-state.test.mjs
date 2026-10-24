@@ -3,6 +3,7 @@ import assert from "node:assert/strict"
 import { workflows } from "../src/workflow-data.ts"
 import { workflowSteps, stepDuration } from "../src/workflow-state.ts"
 import { previewForStep, previewIsApproved, paymentIsReceived, billingFigures, finalBillTotal, finalBillBalance } from "../src/workflow-preview-state.ts"
+import { diagramForStep } from "../src/workflow-diagram-data.ts"
 
 test("all seven workflows show task-specific previews with 2.5 seconds per task", () => {
   const finalPreviews = ["quote", "work-order", "brief", "comparison", "payment", "messages", "invoice"]
@@ -19,6 +20,36 @@ test("all seven workflows show task-specific previews with 2.5 seconds per task"
   assert.equal(previewForStep("crew", { kind: "working", task: 0, beat: 1 }), "messages")
   assert.equal(previewForStep("booking", { kind: "working", task: 1, beat: 1 }), "agreement")
   assert.equal(previewForStep("billing", { kind: "working", task: 1, beat: 0 }), "reconcile")
+})
+
+test("each workflow includes a Hairline diagram and retains its product previews", () => {
+  const artifactKinds = {
+    sales: ["aircraft", "quote"],
+    maintenance: ["work-order"],
+    crew: ["messages", "brief"],
+    review: ["aircraft", "comparison"],
+    booking: ["agreement", "payment"],
+    recovery: ["aircraft", "comparison", "messages"],
+    billing: ["reconcile", "invoice"],
+  }
+  for (const flow of workflows) {
+    const steps = workflowSteps(flow)
+    const kinds = steps.map((step) => previewForStep(flow.key, step))
+    assert.ok(kinds.includes("diagram"), flow.key)
+    for (const kind of artifactKinds[flow.key]) assert.ok(kinds.includes(kind), `${flow.key}: ${kind}`)
+    for (const step of steps.filter((step) => previewForStep(flow.key, step) === "diagram")) {
+      const diagram = diagramForStep(flow.key, step)
+      assert.ok(diagram?.figure && diagram.title && diagram.description, flow.key)
+      assert.equal(step.kind, "working", "Diagrams never obscure approval or completion")
+    }
+  }
+})
+
+test("crew messages and both review aircraft options retain their full task beats", () => {
+  for (const beat of [0, 1]) {
+    assert.equal(previewForStep("crew", { kind: "working", task: 0, beat }), "messages")
+    assert.equal(previewForStep("review", { kind: "working", task: 0, beat }), "aircraft")
+  }
 })
 
 test("approval stamps never appear before the team's approval", () => {

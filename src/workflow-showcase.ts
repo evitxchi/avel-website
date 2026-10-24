@@ -3,6 +3,7 @@ import { scrollToPosition } from "./smooth-scroll"
 import { createElement as createLucideElement, DollarSign, Users, Plane, FileText, Check, Pause, Play } from "lucide"
 
 import { updateWorkflowPreview } from "./workflow-previews"
+import { destroyWorkflowDiagram, setWorkflowDiagramPlaying } from "./workflow-diagrams"
 import { workflows } from "./workflow-data"
 import type { Brand, Task } from "./workflow-data"
 import { workflowSteps, taskState, stepDuration, workflowAtProgress } from "./workflow-state"
@@ -41,7 +42,7 @@ if (section && sequence && panel && tabs.length) {
     const step = steps[phase]
     const complete = step.kind === "complete"
     const preview = sequence.querySelector<HTMLElement>(".flow-preview")!
-    const hasPreview = updateWorkflowPreview(preview, flow.key, step, !reducedMotion.matches && !paused)
+    const hasPreview = updateWorkflowPreview(preview, flow.key, step, !reducedMotion.matches && !paused, !reducedMotion.matches && !paused && inView && !document.hidden)
     sequence.querySelector(".flow-work-body")!.classList.toggle("has-preview", hasPreview)
     const needsReview = step.kind === "review"
     sequence.querySelectorAll<HTMLElement>(".flow-task").forEach((row, index) => {
@@ -82,7 +83,10 @@ if (section && sequence && panel && tabs.length) {
 
   const schedule = () => {
     clearTimer()
-    if (reducedMotion.matches || paused || !inView || document.hidden) return
+    const playing = !reducedMotion.matches && !paused && inView && !document.hidden
+    const preview = sequence.querySelector<HTMLElement>(".flow-preview")
+    if (preview) setWorkflowDiagramPlaying(preview, playing)
+    if (!playing) return
     timer = window.setTimeout(() => {
       phase = (phase + 1) % steps.length
       setPhase()
@@ -91,6 +95,8 @@ if (section && sequence && panel && tabs.length) {
   }
 
   const select = (index: number, focus = false) => {
+    const previousPreview = sequence.querySelector<HTMLElement>(".flow-preview")
+    if (previousPreview) destroyWorkflowDiagram(previousPreview)
     selected = index
     const flow = workflows[index]
     steps = workflowSteps(flow)

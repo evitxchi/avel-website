@@ -1,18 +1,18 @@
 import type { WorkflowStep } from "./workflow-state"
 
-export type PreviewKind = "aircraft" | "quote" | "work-order" | "messages" | "brief" | "comparison" | "agreement" | "payment" | "reconcile" | "invoice"
+export type PreviewKind = "diagram" | "aircraft" | "quote" | "work-order" | "messages" | "brief" | "comparison" | "agreement" | "payment" | "reconcile" | "invoice"
 
 /** Visual work stays on the same task clock as the rest of the demonstration. */
 export function previewForStep(key: string, step: WorkflowStep): PreviewKind | null {
   const task = step.kind === "complete" ? Infinity : step.task
   switch (key) {
-    case "sales": return task < 1 ? null : task < 2 ? "aircraft" : "quote"
-    case "maintenance": return task < 2 ? null : "work-order"
-    case "crew": return task < 2 ? "messages" : "brief"
-    case "review": return task < 1 ? "aircraft" : "comparison"
-    case "booking": return task < 1 ? null : task < 2 ? "agreement" : "payment"
-    case "recovery": return task < 1 ? null : task < 2 ? "aircraft" : task < 3 ? "comparison" : "messages"
-    case "billing": return task < 1 ? null : task < 2 ? "reconcile" : "invoice"
+    case "sales": return task < 1 ? "diagram" : task < 2 ? "aircraft" : "quote"
+    case "maintenance": return task < 2 ? "diagram" : "work-order"
+    case "crew": return task === 2 && step.kind === "working" && step.beat === 0 ? "diagram" : task < 2 ? "messages" : "brief"
+    case "review": return task === 2 && step.kind === "working" && step.beat === 0 ? "diagram" : task < 1 ? "aircraft" : "comparison"
+    case "booking": return task < 1 ? "diagram" : task < 2 ? "agreement" : "payment"
+    case "recovery": return task < 1 ? "diagram" : task < 2 ? "aircraft" : task < 3 ? "comparison" : "messages"
+    case "billing": return task < 1 ? "diagram" : task < 2 ? "reconcile" : "invoice"
     default: return null
   }
 }
