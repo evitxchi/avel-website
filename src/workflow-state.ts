@@ -30,7 +30,7 @@ export function stepDuration(step: WorkflowStep): number {
   if (step.kind === "complete") return 2200
   if (step.kind === "review") return 1500
   if (step.kind === "approved") return 600
-  return step.beat === 0 ? 550 : 850
+  return step.beat === 0 ? 1000 : 1500
 }
 
 export function workflowAtProgress(progress: number, count: number): number {
