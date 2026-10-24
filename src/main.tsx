@@ -2,11 +2,14 @@ import "../main.js"
 import "./workflow-showcase"
 import "./inbox-demo"
 import { createRoot } from "react-dom/client"
-import { useLayoutEffect, useRef } from "react"
+import { createPortal } from "react-dom"
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import { createElement as createLucideElement, Plane } from "lucide"
-import { ThinkingOrb } from "thinking-orbs"
 import { Globe } from "../components/ui/cobe-globe"
 import type { GlobeArc, GlobeMarker } from "../components/ui/cobe-globe"
+import { OverviewAssistant, OverviewStats, OverviewMapContext } from "./overview-demo"
+import { overviewDuration, overviewFrame } from "./overview-state"
+import type { OverviewTrip } from "./overview-state"
 
 type Airport = {
   code: string
@@ -170,13 +173,14 @@ function displayDate(date: string, cycle: number): string {
   }).format(value)
 }
 
-function FlightRail({ route, cycle }: { route: RouteSet; cycle: number }) {
+function FlightRail({ route, cycle, ready }: { route: RouteSet; cycle: number; ready: boolean }) {
   return (
     <div key={`${route.id}-${cycle}`} className="flight-rail route-change">
-      {route.legs.map((leg) => (
+      {route.legs.map((leg, index) => (
         <article className="flight-leg" key={`${leg.from.code}-${leg.to.code}`}>
           <div className="flight-heading">
             <b>{leg.from.city} to {leg.to.city}</b>
+            {index === 0 && <span className={`overview-flight-state${ready ? " is-ready" : ""}`}>{ready ? "Brief ready" : "In view"}</span>}
           </div>
           <div className="flight-times">
             <div className="flight-time">
@@ -211,28 +215,77 @@ function FlightDirection() {
 
 const globeRoot = document.getElementById("network-globe-root")
 const flightRailRoot = document.getElementById("flight-rail-root")
-const assistantOrbRoot = document.getElementById("assistant-orb-root")
+const assistantRoot = document.getElementById("overview-assistant-root")
+const statsRoot = document.getElementById("overview-stats-root")
+const mapContextRoot = document.getElementById("overview-map-context-root")
 const globeSpeed = 0.001
 
-if (globeRoot && flightRailRoot) {
-  const globe = createRoot(globeRoot)
-  const rail = createRoot(flightRailRoot)
-  if (assistantOrbRoot) {
-    createRoot(assistantOrbRoot).render(
-      <ThinkingOrb
-        state="solving"
-        size={64}
-        speed={0.65}
-        paused={window.matchMedia("(prefers-reduced-motion: reduce)").matches}
-      />,
-    )
+function OverviewDashboard() {
+  const [activeRoute, setActiveRoute] = useState(0)
+  const [routeCycle, setRouteCycle] = useState(0)
+  const [elapsed, setElapsed] = useState(0)
+  const clock = useRef(0)
+  const [paused, setPaused] = useState(false)
+  const [inView, setInView] = useState(false)
+  const [pageVisible, setPageVisible] = useState(!document.hidden)
+  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  const running = inView && pageVisible && !paused && !reducedMotion
+  const route = routeSets[activeRoute]
+  const frame = overviewFrame(elapsed, reducedMotion)
+  const nextRoute = (activeRoute + 1) % routeSets.length
+  const nextLongitude = routeSets[nextRoute].focusLongitude + (nextRoute === 0 ? 360 : 0)
+  const routeDuration = Math.max(overviewDuration, (nextLongitude - route.focusLongitude) * Math.PI / 180 * 16.67 / globeSpeed)
+  const leg = route.legs[0]
+  const trip: OverviewTrip = {
+    from: leg.from.city, to: leg.to.city, fromCode: leg.from.code, toCode: leg.to.code,
+    aircraft: leg.aircraft, distance: distanceBetween(leg.from, leg.to), depart: leg.depart, zone: leg.from.zone,
   }
-  let activeRoute = 0
-  let routeCycle = 0
 
-  const showRoute = (routeIndex: number) => {
-    const route = routeSets[routeIndex]
-    globe.render(
+  useEffect(() => {
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const changeMotion = () => setReducedMotion(motion.matches)
+    const changeVisibility = () => setPageVisible(!document.hidden)
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.1 })
+    const target = document.querySelector(".hero-frame")
+    if (target) observer.observe(target)
+    motion.addEventListener("change", changeMotion)
+    document.addEventListener("visibilitychange", changeVisibility)
+    return () => {
+      observer.disconnect()
+      motion.removeEventListener("change", changeMotion)
+      document.removeEventListener("visibilitychange", changeVisibility)
+    }
+  }, [])
+
+  useEffect(() => {
+    const target = document.querySelector(".hero-frame")
+    target?.classList.toggle("overview-motion-paused", !running)
+    return () => target?.classList.remove("overview-motion-paused")
+  }, [running])
+
+  useEffect(() => {
+    if (!running) return
+    let last = performance.now()
+    let timer: ReturnType<typeof setTimeout>
+    const tick = () => {
+      const now = performance.now()
+      clock.current += now - last
+      last = now
+      if (clock.current >= routeDuration) {
+        clock.current = 0
+        setElapsed(0)
+        if (nextRoute === 0) setRouteCycle((cycle) => cycle + 1)
+        setActiveRoute(nextRoute)
+        return
+      }
+      setElapsed(clock.current)
+      timer = window.setTimeout(tick, 60)
+    }
+    timer = window.setTimeout(tick, 60)
+    return () => window.clearTimeout(timer)
+  }, [running, routeDuration, nextRoute])
+
+  const globe = useMemo(() => (
       <Globe
         initialPhi={route.focusLongitude * Math.PI / 180}
         markers={markersFor(route)}
@@ -252,28 +305,22 @@ if (globeRoot && flightRailRoot) {
         scale={1.2}
         diffuse={1.2}
         mapPointCount={18000}
-      />,
-    )
-    rail.render(<FlightRail route={route} cycle={routeCycle} />)
-  }
+        paused={!running}
+      />
+  ), [route, running])
 
-  showRoute(activeRoute)
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const advanceRoute = () => {
-      const nextRoute = (activeRoute + 1) % routeSets.length
-      const currentLongitude = routeSets[activeRoute].focusLongitude
-      const nextLongitude = routeSets[nextRoute].focusLongitude + (nextRoute === 0 ? 360 : 0)
-      const radiansToNextRoute = (nextLongitude - currentLongitude) * Math.PI / 180
-      const travelDuration = radiansToNextRoute * 16.67 / globeSpeed
+  return <>
+    {createPortal(globe, globeRoot!)}
+    {createPortal(<FlightRail route={route} cycle={routeCycle} ready={frame.phase === "ready"} />, flightRailRoot!)}
+    {createPortal(<OverviewStats frame={frame} />, statsRoot!)}
+    {createPortal(<OverviewMapContext trip={trip} frame={frame} />, mapContextRoot!)}
+    <OverviewAssistant trip={trip} frame={frame} running={running} paused={paused} reducedMotion={reducedMotion}
+      onPause={() => setPaused((value) => !value)}
+      onReplay={() => { clock.current = 0; setElapsed(0); setPaused(false) }} />
+  </>
+}
 
-      window.setTimeout(() => {
-        activeRoute = nextRoute
-        if (activeRoute === 0) routeCycle += 1
-        showRoute(activeRoute)
-        advanceRoute()
-      }, travelDuration)
-    }
-
-    advanceRoute()
-  }
+if (globeRoot && flightRailRoot && assistantRoot && statsRoot && mapContextRoot) {
+  statsRoot.replaceChildren()
+  createRoot(assistantRoot).render(<OverviewDashboard />)
 }

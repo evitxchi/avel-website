@@ -10,43 +10,6 @@ createIcons({
   attrs: { "stroke-width": 1.7 },
 })
 
-const assistantQuestion = document.getElementById("assistant-question-text")
-if (assistantQuestion) {
-  const questions = [
-    "Find the strongest empty-leg match for a six-passenger charter from Teterboro to Miami next Friday, comparing aircraft fit, repositioning cost, and crew duty limits.",
-    "Which aircraft can cover a San Francisco to Aspen round trip this weekend, accounting for runway performance, weather, maintenance windows, and crew rest?",
-    "Rebuild tomorrow’s schedule after a two-hour delay at O’Hare while protecting the next departures and flagging crew, handling, and curfew conflicts.",
-    "Compare three aircraft for a twelve-passenger transatlantic trip, including total cost, fuel stops, cabin range, and likely airport slot constraints.",
-    "Review open charter requests against fleet availability and find repositioning opportunities that improve utilization without putting on-time departures at risk.",
-  ]
-  const pause = (duration) => new Promise((resolve) => window.setTimeout(resolve, duration))
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
-
-  ;(async () => {
-    let questionIndex = 0
-    while (assistantQuestion.isConnected) {
-      const words = questions[questionIndex].split(/\s+/)
-      assistantQuestion.textContent = ""
-      if (prefersReducedMotion.matches) {
-        assistantQuestion.textContent = questions[questionIndex]
-        await pause(6200)
-      } else {
-        for (const [index, word] of words.entries()) {
-          assistantQuestion.textContent = `${assistantQuestion.textContent}${index ? " " : ""}${word}`
-          await pause(142)
-        }
-        await pause(2300)
-        assistantQuestion.classList.add("is-clearing")
-        await pause(240)
-        assistantQuestion.textContent = ""
-        assistantQuestion.classList.remove("is-clearing")
-        await pause(420)
-      }
-      questionIndex = (questionIndex + 1) % questions.length
-    }
-  })()
-}
-
 const announcementDismiss=document.getElementById('announcement-dismiss');
 announcementDismiss?.addEventListener('click',()=>{
   document.getElementById('avel-announcement')?.remove();

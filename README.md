@@ -35,3 +35,13 @@ offscreen state, and reduced motion also control diagram playback.
 Hairline is MIT licensed: https://github.com/lucasmarkes/hairline.
 The optional `hairline-create` and `hairline-adopt` agent skills are installed
 locally in the user's Codex skills directory; they are not shipped to visitors.
+
+## Overview demonstration
+
+The hero overview follows one example trip from a written request through trip
+context, aircraft comparison, coordination notes, and a departure brief. Its
+assistant, summary cards, map context, and flight cards share the same route.
+Each work stage lasts 2.5 seconds, and the brief remains visible for at least
+three seconds. Pause and replay controls sit beside the Avel heading.
+The demonstration pauses offscreen or in a hidden tab; reduced motion presents
+the completed brief. The globe retains its orientation when motion resumes.
