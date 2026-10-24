@@ -45,3 +45,6 @@ Each work stage lasts 2.5 seconds, and the brief remains visible for at least
 three seconds. Pause and replay controls sit beside the Avel heading.
 The demonstration pauses offscreen or in a hidden tab; reduced motion presents
 the completed brief. The globe retains its orientation when motion resumes.
+The aircraft-fit stage includes an Avinode-branded carousel of real aircraft
+photographs and model names beneath the line animation. Its scroll follows the
+same 2.5-second stage clock and pauses with the rest of the demonstration.

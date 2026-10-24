@@ -6,6 +6,7 @@ import { mountWorkflowDiagram, updateWorkflowDiagram, destroyWorkflowDiagram } f
 import type { WorkflowDiagram } from "./workflow-diagram-data"
 import { overviewQuestion, overviewStatuses } from "./overview-state"
 import type { OverviewTrip, OverviewFrame } from "./overview-state"
+import { overviewAircraft, aircraftScrollProgress } from "./overview-aircraft"
 
 function Icon({ node }: { node: IconNode }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -63,6 +64,22 @@ function DepartureBrief({ trip }: { trip: OverviewTrip }) {
   </div>
 }
 
+function AircraftCarousel({ elapsed, trip }: { elapsed: number; trip: OverviewTrip }) {
+  const progress = aircraftScrollProgress(elapsed)
+  return <section className="overview-aircraft overview-scene-enter" aria-label="Aircraft options via Avinode">
+    <div className="overview-aircraft-header"><span>Aircraft options</span><span className="overview-aircraft-provider">via<img src="/assets/avinode-logotype.png" alt="Avinode" width="2000" height="388" /></span></div>
+    <div className="overview-aircraft-window">
+      <ul className="overview-aircraft-track" style={{ transform: `translateX(calc(${-progress * 116}% - ${progress * 16}px))` }}>
+        {overviewAircraft.map((aircraft) => <li className="overview-aircraft-card" key={aircraft.registration}>
+          <img className="overview-aircraft-photo" src={aircraft.image} alt={`${aircraft.name}, ${aircraft.registration}`} width="800" height="500" decoding="async" />
+          <div><strong>{aircraft.name}</strong><small>{aircraft.registration}</small></div>
+        </li>)}
+      </ul>
+    </div>
+    <div className="overview-aircraft-footer"><span>{trip.fromCode} to {trip.toCode} · 6 guests</span><span>Comparing aircraft</span></div>
+  </section>
+}
+
 type OverviewAssistantProps = {
   trip: OverviewTrip
   frame: OverviewFrame
@@ -95,9 +112,10 @@ export function OverviewAssistant({ trip, frame, running, paused, reducedMotion,
           <h3>{scene.title}</h3>
           <p>{ready ? reply.split(/\s+/).slice(0, replyWords).join(" ") : scene.detail}</p>
         </div>
-        {!ready && <div className="overview-context" key={`context-${frame.phase}`}>
-          <span><Icon node={frame.phase === "aircraft" ? Plane : frame.phase === "coordination" ? Users : FileText} />{frame.phase === "aircraft" ? trip.aircraft : frame.phase === "coordination" ? "Pilots · dispatch · FBO" : `${trip.fromCode} to ${trip.toCode}`}</span>
-          <span>{frame.phase === "aircraft" ? trip.distance : "6 guests"}</span>
+        {frame.phase === "aircraft" && <AircraftCarousel elapsed={frame.phaseElapsed} trip={trip} />}
+        {!ready && frame.phase !== "aircraft" && <div className="overview-context" key={`context-${frame.phase}`}>
+          <span><Icon node={frame.phase === "coordination" ? Users : FileText} />{frame.phase === "coordination" ? "Pilots · dispatch · FBO" : `${trip.fromCode} to ${trip.toCode}`}</span>
+          <span>6 guests</span>
         </div>}
       </div>
     </div>
