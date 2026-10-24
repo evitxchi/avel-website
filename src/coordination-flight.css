@@ -1,0 +1,23 @@
+.principle-card{transition:border-color .7s,background .7s,transform .7s}
+.principle-card.is-flight-active{border-color:#a5afb76b;background:linear-gradient(130deg,#24282c,#121416);transform:translateY(-4px)}
+.coordination-flight{margin-top:26px;border:1px solid #ffffff16;border-radius:14px;background:#0b0d10;overflow:hidden;color:#cbd1d8}
+.coordination-flight-stations{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:18px 24px 0}
+.coordination-flight-stations>div{display:flex;flex-direction:column;align-items:center;opacity:.42;transition:opacity .7s;min-width:0}
+.coordination-flight-stations>div.is-active{opacity:1}
+.coordination-flight-stations .module-line-figure{max-width:190px;height:150px;aspect-ratio:auto}
+.coordination-flight-stations .module-line-figure[data-hairline-theme=dark]{--hairline-plate:#0b0d10;--hairline-hi:#dfe5eb;--hairline-edge:#a5afb9;--hairline-mid:#687582;--hairline-lo:#353e48}
+.coordination-flight-stations>div>span{display:flex;align-items:center;gap:7px;font-size:11px;color:#929da8;line-height:1.4;text-align:center}
+.coordination-flight-route{margin:-4px 0 -26px}
+.coordination-flight-route>svg{width:100%;height:auto;display:block;overflow:visible}
+.coordination-route-base{stroke:#4b5662;stroke-width:1}
+.coordination-route-travel{stroke:#c1cad3;stroke-width:1.2;stroke-linecap:round}
+.coordination-route-guide{stroke:#39424c;stroke-width:.8}.coordination-route-guide.is-active{stroke:#7c8997}
+.coordination-route-stop{stroke:#5e6c7a;stroke-width:1;fill:#0b0d10}.coordination-route-stop.is-reached{fill:#b1bbc6;stroke:#d6dee7}
+.coordination-aircraft-model{stroke-width:1.05}.aircraft-edge{stroke:#7f8e9c}.aircraft-hi{stroke:#dae1e8}.aircraft-crease{stroke:#485764;stroke-width:.85}
+.coordination-flight>footer{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 28px 26px}
+.coordination-flight h3{font-size:23px;font-weight:400;letter-spacing:-.035em;margin:10px 0 7px}
+.coordination-flight p{font-size:12px;line-height:1.6;margin:0;color:#7e8a96;min-height:20px}
+.coordination-flight .module-demo-label{font-size:9px;color:#7f8b98}
+.coordination-flight[data-playing=false] *{animation-play-state:paused!important}
+@media(max-width:640px){.coordination-flight{margin-top:18px}.coordination-flight-stations{padding:10px 6px 0;gap:0}.coordination-flight-stations .module-line-figure{height:96px}.coordination-flight-stations>div>span{font-size:8px;gap:4px;min-height:25px;flex-direction:column}.coordination-flight-route{margin:4px 0 -5px}.coordination-flight>footer{padding:10px 18px 20px}.coordination-flight h3{font-size:20px}.coordination-flight p{font-size:10px;max-width:270px;min-height:32px}.coordination-flight .module-demo-label{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.principle-card,.coordination-flight *{animation:none!important;transition:none!important}}

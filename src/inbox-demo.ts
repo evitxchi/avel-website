@@ -1,4 +1,6 @@
 import "./inbox-demo.css"
+import { createModuleFigure } from "./module-figures"
+import type { ModuleFigureKind } from "./module-figures"
 import { createElement as createLucideElement, Phone, Check, Plane, ArrowRight, FileText, Search, Clock, Pencil, Pause, Play, ChevronRight, Paperclip } from "lucide"
 import type { IconNode } from "lucide"
 
@@ -48,8 +50,10 @@ function originalEmail(highlighting = true): string {
 
 const task = (label: string, detail: string, delay: number) => `<div class="id-task" style="--task-delay:${delay}ms"><span class="id-task-state"><i class="id-working-spinner"></i><b>${icon("check", 11)}</b></span><span>${label}</span><small>${detail}</small></div>`
 
+const lineFigure = (kind: ModuleFigureKind) => `<div class="id-line-figure" data-inbox-figure="${kind}" aria-hidden="true"></div>`
+
 function workingEmail(): string {
-  return emailShell(`<div class="id-compact-email">${sender("Marina Alvarez", "TEB → PBI · Round trip")}${pill("Qualified lead", "id-pill-dark")}<p>4 passengers · Nov 12–15 · $32,000 ceiling</p></div><div class="id-working-card"><div class="id-working-title">${avelAvatar}<strong>Avel working<span class="id-dots">...</span></strong></div><div class="id-task-list">${task("Extract trip requirements", "Trip brief ready", 450)}${task("Match aircraft and baggage capacity", "Midsize cabin", 1400)}${task("Draft operator RFQ", "3 operators selected", 2300)}</div></div><div class="id-bottom-note">${icon("attachment", 13)} Email and trip requirements stay together.</div>`, "A new lead. Already in motion.", "Processing")
+  return emailShell(`<div class="id-compact-email">${sender("Marina Alvarez", "TEB → PBI · Round trip")}${pill("Qualified lead", "id-pill-dark")}<p>4 passengers · Nov 12–15 · $32,000 ceiling</p></div><div class="id-working-card"><div class="id-working-title">${avelAvatar}<strong>Avel working<span class="id-dots">...</span></strong></div><div class="id-thinking-layout">${lineFigure("terminal")}<div class="id-task-list">${task("Read trip requirements", "Trip brief ready", 450)}${task("Match cabin & baggage", "Midsize cabin", 1400)}${task("Draft operator RFQ", "Pricing requested", 2300)}</div></div></div><div class="id-bottom-note">${icon("attachment", 13)} Email and trip requirements stay together.</div>`, "A new lead. Already in motion.", "Processing")
 }
 
 function rfqCard(revised = false, call = false): string {
@@ -107,12 +111,16 @@ function callLine(line: CallLine, index: number, animated = true): string {
   return `<article class="id-call-line ${line.agent ? "id-call-agent" : ""}" data-line="${index}"><span class="id-transcript-speaker">${line.agent ? avelAvatar : clientAvatar}<strong>${line.name}</strong>${line.agent ? '<small>Avel is speaking</small>' : ""}</span><p>${animated ? words(line.text, 0, 60) : line.text}</p></article>`
 }
 
+function callConnection(): string {
+  return `<div class="id-call-connection"><div class="id-call-endpoint id-endpoint-agent">${avelAvatar}<strong>Avel Agent</strong><span class="id-endpoint-state">Listening</span><span class="id-voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div><div class="id-phone-model">${lineFigure("phone")}<span>${icon("phone", 10)} Live connection</span></div><div class="id-call-endpoint id-endpoint-client">${clientAvatar}<strong>Client</strong><span class="id-endpoint-state">Speaking</span><span class="id-voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div></div>`
+}
+
 function callConversation(): string {
-  return callShell(`<div class="id-call-activity">${waveform()}<span>Listening. Understanding. Moving it forward.</span></div><div class="id-transcript" aria-label="Conversation between Avel Agent and a charter client">${callLine(callLines[0], 0)}</div><div class="id-call-draft"><span class="id-file-icon">${icon("file", 17)}</span><div><strong>Charter RFQ</strong><span data-call-draft>Capturing route and trip requirements</span></div><span class="id-working-spinner"></span></div>`)
+  return callShell(`${callConnection()}<div class="id-call-activity">${waveform()}<span data-call-activity>Listening to the client’s request</span></div><div class="id-transcript" aria-label="Conversation between Avel Agent and a charter client">${callLine(callLines[0], 0)}</div><div class="id-call-draft"><span class="id-file-icon">${icon("file", 17)}</span><div><strong>Charter RFQ</strong><span data-call-draft>Capturing route and trip requirements</span></div><span class="id-working-spinner"></span></div>`)
 }
 
 const callPhases: Phase[] = [
-  { duration: 2300, title: "An after-hours client call arrives", render: () => `<div class="id-call-ringing id-enter"><div class="id-call-halo"><span>${icon("phone", 31)}</span></div><span class="id-kicker">02:14 AM · INCOMING CALL</span><h3>Your charter desk is still open.</h3><p>Avel is answering a new client request.</p><div class="id-answer-label">${avelAvatar} Avel Agent <span class="id-dot-pulse"></span> Connecting</div></div>` },
+  { duration: 2300, title: "An after-hours client call arrives", render: () => `<div class="id-call-ringing id-enter"><div class="id-ringing-model">${lineFigure("phone")}</div><span class="id-kicker">02:14 AM · INCOMING CALL</span><h3>Your charter desk is still open.</h3><p>Avel is answering a new client request.</p><div class="id-answer-label">${avelAvatar} Avel Agent <span class="id-dot-pulse"></span> Connecting</div></div>` },
   { duration: 23800, title: "Avel and the client discuss an urgent charter request", render: callConversation },
   { duration: 5400, title: "Avel has revised the urgent charter RFQ", render: () => callShell(`<div class="id-call-summary">${icon("check", 13)} Trip brief updated during the call.</div>${rfqCard(true, true)}<div class="id-call-final">${avelAvatar}<p>${words("I have everything I need. Your updated RFQ is ready for operator availability and firm pricing.", 300, 60)}</p></div>`, "RFQ prepared from the conversation") },
 ]
@@ -132,6 +140,8 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
   let lastTime = 0
   let frame = 0
   let displayedCallLines = 1
+  let lineFigures: ReturnType<typeof createModuleFigure>[] = []
+  const syncFigures = () => lineFigures.forEach(figure => figure.update(Math.floor(phaseElapsed / 1000), !userPaused && inView && !document.hidden && !reducedMotion))
 
   root.innerHTML = `<div class="id-topbar"><div class="id-product-name">${avelAvatar}<strong>Shared inbox</strong></div><div class="id-scene-tabs" role="tablist" aria-label="Choose a conversation demo"><button type="button" role="tab" id="id-email-tab" aria-controls="id-demo-stage" aria-selected="true" data-inbox-scene="email">${gmailLogo}<span>Email</span></button><button type="button" role="tab" id="id-call-tab" aria-controls="id-demo-stage" aria-selected="false" tabindex="-1" data-inbox-scene="call">${icon("phone", 14)}<span>After-hours call</span></button></div><button type="button" class="id-pause-button" aria-label="Pause conversation animation">${icon("pause", 13)}</button></div><div class="id-stage" id="id-demo-stage" role="tabpanel" aria-labelledby="id-email-tab"></div><div class="id-footer"><span class="id-footer-status"><span class="id-dot-pulse"></span><span data-demo-description>New charter request</span></span></div>`
   const stage = root.querySelector<HTMLElement>(".id-stage")!
@@ -148,6 +158,10 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
     pauseButton.setAttribute("aria-label", userPaused ? "Play conversation animation" : "Pause conversation animation")
     pauseButton.hidden = reducedMotion
     lastTime = 0
+    cancelAnimationFrame(frame)
+    frame = 0
+    if (!paused) frame = requestAnimationFrame(tick)
+    syncFigures()
   }
 
   const draw = () => {
@@ -162,7 +176,9 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
     if (phaseIndex !== nextIndex) {
       phaseIndex = nextIndex
       displayedCallLines = 1
+      lineFigures.forEach(figure => figure.destroy())
       stage.innerHTML = activePhases[phaseIndex].render()
+      lineFigures = [...stage.querySelectorAll<HTMLElement>("[data-inbox-figure]")].map(host => createModuleFigure(host, host.dataset.inboxFigure as ModuleFigureKind))
       description.textContent = activePhases[phaseIndex].title
       root.dataset.scene = scene
       root.dataset.phase = String(phaseIndex)
@@ -179,7 +195,14 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
       }
       const agentSpeaking = Boolean(callLines[Math.max(0, count - 1)]?.agent)
       root.classList.toggle("id-agent-speaking", agentSpeaking)
+      const agentState = stage.querySelector(".id-endpoint-agent .id-endpoint-state")
+      const clientState = stage.querySelector(".id-endpoint-client .id-endpoint-state")
+      if (agentState) agentState.textContent = agentSpeaking ? "Speaking" : "Listening"
+      if (clientState) clientState.textContent = agentSpeaking ? "Listening" : "Speaking"
+      const activity = stage.querySelector("[data-call-activity]")
+      if (activity) activity.textContent = agentSpeaking ? "Avel clarifies the trip and updates the RFQ" : "Listening to the client’s request"
     }
+    syncFigures()
   }
 
   const chooseScene = (nextScene: InboxScene, focus = false) => {
@@ -225,7 +248,8 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
   }, { threshold: 0.12 })
   observer.observe(root)
 
-  const tick = (now: number) => {
+  function tick(now: number) {
+    frame = 0
     if (!userPaused && inView && !document.hidden && !reducedMotion) {
       if (lastTime) elapsed += Math.min(now - lastTime, 100)
       lastTime = now
@@ -233,12 +257,12 @@ export function mountInboxDemo(root: HTMLElement | null = document.getElementByI
       if (elapsed >= total) chooseScene(scene === "email" ? "call" : "email")
       else draw()
     } else lastTime = 0
-    frame = requestAnimationFrame(tick)
+    if (!frame && !userPaused && inView && !document.hidden && !reducedMotion) frame = requestAnimationFrame(tick)
   }
   chooseScene("email")
-  frame = requestAnimationFrame(tick)
   return () => {
     cancelAnimationFrame(frame)
+    lineFigures.forEach(figure => figure.destroy())
     observer.disconnect()
     tabList.removeEventListener("click", onTabClick)
     tabList.removeEventListener("keydown", onTabKey)

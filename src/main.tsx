@@ -1,6 +1,8 @@
 import "../main.js"
 import "./workflow-showcase"
 import "./inbox-demo"
+import "./module-demos"
+import "./coordination-flight"
 import { createRoot } from "react-dom/client"
 import { createPortal } from "react-dom"
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"

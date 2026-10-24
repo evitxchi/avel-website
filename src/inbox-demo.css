@@ -50,6 +50,34 @@
 .inbox-demo .id-working-title .id-avel-avatar{width:25px;height:25px;border-radius:7px}
 .inbox-demo .id-dots{animation:id-dot-pulse 1.3s ease infinite}
 .inbox-demo .id-task-list{display:grid;gap:9px}
+.inbox-demo .id-thinking-layout{display:grid;grid-template-columns:minmax(100px,.65fr) minmax(0,1.35fr);gap:13px;align-items:center}
+.inbox-demo .id-line-figure{aspect-ratio:5/4;width:100%;pointer-events:none;--hairline-plate:#f6f7f8;--hairline-hi:#586775;--hairline-edge:#8996a3;--hairline-mid:#b1bac4;--hairline-lo:#d9dfe5;--hairline-stroke:1}
+.inbox-demo .id-line-figure>svg{width:100%;height:100%;display:block}
+.inbox-demo .id-thinking-layout .id-task{flex-wrap:wrap;min-height:43px;gap:6px;font-size:9px}
+.inbox-demo .id-thinking-layout .id-task small{font-size:7px}
+.inbox-demo .id-working-card{background:#f6f7f8}
+.inbox-demo .id-call-connection{display:grid;grid-template-columns:1fr 1.2fr 1fr;align-items:center;gap:15px;min-height:138px;flex:none;padding:0 14px;border-bottom:1px solid #edf0f3;background:#fff}
+.inbox-demo .id-call-endpoint{display:flex;align-items:center;flex-direction:column;position:relative;gap:5px;min-width:0}
+.inbox-demo .id-call-endpoint>.id-avel-avatar,.inbox-demo .id-call-endpoint>.id-client-avatar{width:34px;height:34px;transition:box-shadow .5s,transform .5s}
+.inbox-demo .id-call-endpoint>strong{font-size:10px;font-weight:400;color:#687785;margin-top:3px}
+.inbox-demo .id-endpoint-state{font-size:8px;color:#a4aeb8}
+.inbox-demo .id-call-endpoint:after{content:"";position:absolute;height:1px;width:34px;background:linear-gradient(90deg,#c9d1da,transparent);right:-30px;top:23px}
+.inbox-demo .id-endpoint-client:after{right:auto;left:-30px;transform:rotate(180deg)}
+.inbox-demo .id-phone-model{position:relative;min-width:0;text-align:center}
+.inbox-demo .id-phone-model .id-line-figure{height:113px;aspect-ratio:auto;--hairline-plate:#fff}
+.inbox-demo .id-phone-model>span{display:flex;align-items:center;justify-content:center;gap:5px;color:#a1acb7;font-size:7px;padding-bottom:10px}
+.inbox-demo .id-voice-bars{height:11px;display:flex;align-items:center;gap:2px;color:#9dabb8}
+.inbox-demo .id-voice-bars>i{display:block;height:9px;width:2px;border-radius:2px;background:currentColor;transform:scaleY(.25)}
+.inbox-demo:not(.id-agent-speaking) .id-endpoint-client .id-voice-bars>i,.inbox-demo.id-agent-speaking .id-endpoint-agent .id-voice-bars>i{animation:id-endpoint-wave .7s ease-in-out infinite alternate}
+.inbox-demo .id-voice-bars>i:nth-child(2){animation-delay:-.3s!important;height:13px}.inbox-demo .id-voice-bars>i:nth-child(3){animation-delay:-.15s!important;height:17px}.inbox-demo .id-voice-bars>i:nth-child(4){animation-delay:-.5s!important;height:12px}.inbox-demo .id-voice-bars>i:nth-child(5){animation-delay:-.2s!important}
+.inbox-demo:not(.id-agent-speaking) .id-endpoint-client>.id-client-avatar,.inbox-demo.id-agent-speaking .id-endpoint-agent>.id-avel-avatar{box-shadow:0 0 0 4px #e8eef3;transform:translateY(-2px)}
+.inbox-demo .id-call-connection+.id-call-activity{padding-block:9px;font-size:8px;gap:9px}
+.inbox-demo .id-call-connection+.id-call-activity .id-waveform{height:20px;transform:scale(.75);transform-origin:left center;min-width:90px;margin-right:-20px}
+.inbox-demo .id-ringing-model{width:230px;max-width:100%;margin:-25px 0 -10px}
+.inbox-demo .id-ringing-model .id-line-figure{--hairline-plate:#f8f9fa;height:205px;aspect-ratio:auto}
+@keyframes id-endpoint-wave{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+@media(max-width:430px){.inbox-demo .id-thinking-layout{grid-template-columns:100px minmax(0,1fr);gap:7px}.inbox-demo .id-thinking-layout .id-task{font-size:8px;padding:8px 6px}.inbox-demo .id-thinking-layout .id-task small{width:100%;padding-left:20px;text-align:left;font-size:7px}.inbox-demo .id-call-connection{gap:8px;padding:0 4px}.inbox-demo .id-call-endpoint:after{width:20px;right:-20px}.inbox-demo .id-endpoint-client:after{left:-20px;right:auto}.inbox-demo .id-call-connection+.id-call-activity{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.inbox-demo .id-voice-bars>i{animation:none!important}.inbox-demo .id-call-endpoint>*{transition:none!important}}
 .inbox-demo .id-task{display:flex;align-items:center;gap:9px;min-height:44px;padding:11px 10px;border-radius:7px;background:#fff;color:#8b9096;font-size:10px;animation:id-task-color .4s calc(var(--task-delay) + 550ms) forwards}
 .inbox-demo .id-task small{margin-left:auto;text-align:right;color:#a5a9af;font-size:8px;opacity:0;animation:id-task-done .3s calc(var(--task-delay) + 550ms) forwards}
 .inbox-demo .id-task-state{position:relative;display:grid;place-items:center;width:15px;height:15px;flex:none}
