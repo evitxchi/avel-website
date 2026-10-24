@@ -106,15 +106,19 @@
     .mini-stat span{display:block;color:#85888d;font-size:9px}
     .mini-stat strong{display:block;margin-top:5px;font-size:17px;font-weight:500;letter-spacing:-.04em}
     .mini-stat small{margin-left:4px;color:#8d9094;font-size:8px;font-weight:400}
-    .map-panel{position:relative;height:330px;min-height:330px;margin-top:14px;overflow:hidden;border:1px solid #25282b;border-radius:10px;background:radial-gradient(ellipse at 53% 49%,#202326 0%,#121416 62%,#090a0b 100%);color:#f6f7f8}
-    .map-panel:before{position:absolute;inset:0;content:"";background:linear-gradient(120deg,transparent 8%,rgba(255,255,255,.025) 48%,transparent 76%);pointer-events:none}
+    .map-panel{position:relative;isolation:isolate;height:330px;min-height:330px;margin-top:14px;overflow:hidden;border:1px solid #252c35;border-radius:10px;background:#030509;color:#f6f7f8}
+    .map-panel:before{position:absolute;z-index:0;inset:-4%;content:"";background:url("/assets/operator-network-space.svg") center/cover no-repeat;pointer-events:none;animation:network-space-drift 48s ease-in-out infinite alternate}
+    .map-panel:after{position:absolute;z-index:0;inset:0;content:"";background:linear-gradient(180deg,rgba(2,3,6,.28),transparent 27%,transparent 78%,rgba(2,3,6,.3));pointer-events:none}
+    @keyframes network-space-drift{from{transform:translate3d(-.8%,-.45%,0) scale(1.015)}to{transform:translate3d(.8%,.45%,0) scale(1.035)}}
+    .overview-motion-paused .map-panel:before{animation-play-state:paused}
+    @media(prefers-reduced-motion:reduce){.map-panel:before{animation:none}}
     .map-header{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:14px 15px}
     .map-header strong{font-size:12px;font-weight:500}
     .map-header small{display:block;margin-top:3px;color:#b5b8bb;font-size:9px}
     .map-header-meta{display:flex;align-items:center;gap:10px}
     .map-tools{display:flex;gap:9px;color:#d5d7d9}
     .map-tools svg{width:14px;height:14px}
-    .map-globe-stage{position:relative;height:252px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .map-globe-stage{position:relative;z-index:1;height:252px;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .network-globe-root{position:relative;width:min(100%,252px);aspect-ratio:1;display:grid;place-items:center}
     .cobe-globe{position:relative;width:100%;height:100%;aspect-ratio:1;user-select:none}
     .cobe-globe canvas{display:block;width:100%;height:100%;border-radius:50%;touch-action:none}
