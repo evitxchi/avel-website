@@ -1,0 +1,113 @@
+/* Compact, task-specific previews share the existing workflow card surface. */
+.flow-work-body{min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.flow-work-body.has-preview .flow-task{display:none}
+.flow-work-body.has-preview .flow-task.is-featured{display:grid;min-height:46px}
+.flow-work-body.has-preview .flow-task-body{min-height:46px;padding-top:8px;padding-bottom:8px}
+.flow-preview{height:222px;flex:none;margin:10px 0 0 33px;overflow:hidden;border:1px solid #e7e8e9;border-radius:11px;background:#fff;color:#323538;font-size:11px;line-height:1.4}
+.flow-preview[hidden]{display:none}
+.flow-preview svg{width:15px;height:15px;flex:none;stroke-width:1.5;color:#878c91}
+.flow-preview strong{font-weight:500}
+.fp-toolbar{height:33px;display:flex;align-items:center;gap:7px;padding:0 13px;border-bottom:1px solid #eceeef;color:#72777c;font-size:9px;white-space:nowrap}
+.fp-toolbar>span:first-of-type{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fp-filetype{margin-left:auto;color:#979ba0;font-family:CarbonPlus,monospace;font-size:9px}
+.fp-paper{position:relative;padding:12px 16px 10px;background:#fff}
+.fp-logo{display:block;width:43px;height:auto;filter:brightness(0);object-fit:contain}
+.fp-document-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px;color:#333;font-size:12px}
+.fp-document-route{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;margin-bottom:5px;border-bottom:1px solid #edf0f1;color:#8c9095;font-size:8px}
+.fp-line{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4px 0;color:#797e83;font-size:9px}
+.fp-line>span:last-child{flex:none;color:#40464b;font-variant-numeric:tabular-nums}
+.fp-document-total{border-top:1px solid #e8ebed;margin-top:5px;padding-top:8px;color:#282d31;font-weight:500}
+.fp-document-total>span:last-child{font-size:13px;color:#24282c}
+.fp-document-note{margin-top:12px;color:#94989c;font-size:9px;line-height:1.5}
+.fp-document-stamp{display:block;margin-top:5px;font-family:CarbonPlus,monospace;font-size:8px;color:#969b9f}
+.fp-approved .fp-document-stamp{color:#6a826b}
+.fp-issued .fp-document-stamp{color:#567a5a}
+.fp-signature{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:58px;border-top:1px solid #e8ebed;margin-top:8px;color:#93989d;font-size:8px}
+.fp-signature-name{font-family:Georgia,serif;font-style:italic;font-size:19px;color:#41474d;clip-path:inset(0 100% 0 0);transition:clip-path .4s ease}
+.fp-advanced .fp-signature-name{clip-path:inset(0)}
+.fp-signature-status{position:absolute;bottom:0;right:0;font-size:8px;color:#8a9197}
+.fp-advanced .fp-signature-status{color:#6a826b}
+.fp-brief-time{display:flex;align-items:center;justify-content:space-between;padding:11px 0;color:#858b91;font-size:9px}
+.fp-brief-time>span:last-child{display:flex;align-items:center;gap:10px;font-variant-numeric:tabular-nums}
+.fp-brief-time del{color:#aeb2b6;font-size:14px}
+.fp-brief-time strong{font-size:23px;color:#2d3237;letter-spacing:-.04em}
+.fp-aircraft-heading{height:34px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 13px;color:#777d83;font-size:9px}
+.fp-aircraft-heading>span:last-child{font-size:8px;color:#9a9fa3}
+.fp-aircraft-window{overflow:hidden}
+.fp-aircraft-track{display:flex;width:100%;transition:transform .38s cubic-bezier(.2,.75,.25,1)}
+.fp-aircraft-slide{flex:0 0 100%;min-width:0;display:grid;grid-template-columns:52% minmax(0,1fr);align-items:center;gap:13px;padding:5px 13px 8px;box-sizing:border-box}
+.fp-aircraft-photo{display:block;width:100%;height:132px;object-fit:contain;border-radius:7px;background:#f4f5f6}
+.fp-aircraft-copy{min-width:0}
+.fp-aircraft-copy small{display:block;color:#969ba0;font-size:8px;line-height:1.5}
+.fp-aircraft-copy>strong{display:block;margin:6px 0 10px;font-size:15px;letter-spacing:-.04em;line-height:1.2;color:#30353a}
+.fp-aircraft-price{font-size:20px;line-height:1.2;color:#2a3035;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.fp-aircraft-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 13px;color:#91979c;font-size:8px}
+.fp-aircraft-footer>span:first-child{display:flex;align-items:center;gap:5px}
+.fp-aircraft-footer svg{width:12px;height:12px}
+.fp-carousel-dots{display:flex;gap:5px}
+.fp-carousel-dots i{width:4px;height:4px;background:#d8dce0;border-radius:50%;transition:background .2s}
+.fp-carousel-dots i:first-child,.fp-advanced .fp-carousel-dots i:last-child{background:#757c83}
+.fp-advanced .fp-carousel-dots i:first-child{background:#d8dce0}
+.fp-sms-header{height:42px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 13px;border-bottom:1px solid #eaedef;background:#fafafa}
+.fp-sms-app{display:flex;align-items:center;gap:8px;font-size:10px;color:#444a50}
+.fp-sms-app small{display:block;font-size:8px;color:#989da2;line-height:1.3}
+.fp-chat{display:flex;flex-direction:column;align-items:flex-start;padding:11px 13px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:10px;line-height:1.4}
+.fp-bubble{max-width:89%;margin:0;padding:8px 11px;border-radius:14px;box-sizing:border-box}
+.fp-outgoing{align-self:flex-end;border-bottom-right-radius:4px;background:#0785f9;color:#fff}
+.fp-delivered{align-self:flex-end;margin:3px 3px 3px 0;font-size:7px;color:#9b9fa4}
+.fp-reply{max-width:95%;opacity:0;transform:translateY(5px);transition:opacity .22s ease,transform .25s ease}
+.fp-reply>small{display:block;margin:0 0 3px 4px;font-size:7px;color:#969ca1}
+.fp-incoming{background:#ececef;border-bottom-left-radius:4px;color:#40464c}
+.fp-advanced .fp-reply{opacity:1;transform:none}
+.fp-comparison{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:25px 22px 18px}
+.fp-comparison>div{display:flex;flex-direction:column;gap:5px}
+.fp-comparison>div:last-child{text-align:right}
+.fp-comparison small,.fp-comparison>div>span{color:#959ba0;font-size:9px}
+.fp-comparison strong{font-size:23px;letter-spacing:-.045em;color:#353b40;font-variant-numeric:tabular-nums}
+.fp-change-summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid #edf0f2;color:#8a9096;font-size:9px}
+.fp-change-summary strong{color:#5c646b;font-variant-numeric:tabular-nums}
+.fp-approval-note{padding:3px 16px;color:#989da2;font-size:8px}
+.fp-approved .fp-approval-note{color:#68816a}
+.fp-payment-status{margin-left:auto;font-size:8px;color:#91999e}
+.fp-received .fp-payment-status{color:#658368}
+.fp-payment-main{display:flex;flex-direction:column;align-items:center;gap:5px;padding:20px 10px 16px}
+.fp-payment-main>span{font-size:9px;color:#91979d}
+.fp-payment-main>strong{font-size:35px;line-height:1.15;letter-spacing:-.055em;font-variant-numeric:tabular-nums;color:#2e3439}
+.fp-payment-main small{color:#a0a5aa;font-size:8px}
+.fp-payment-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px;border-top:1px solid #edf0f1;font-size:9px;color:#959ba0}
+.fp-payment-footer>span:first-child>strong{display:block;color:#626b72;font-size:12px;line-height:1.5;font-variant-numeric:tabular-nums}
+.fp-payment-matched{display:flex;align-items:center;gap:5px;color:#6b826d;opacity:0;transition:opacity .2s}
+.fp-payment-matched svg{width:13px;height:13px;color:inherit}
+.fp-received .fp-payment-matched{opacity:1}
+.fp-reconcile-lines{padding:14px 16px 11px}
+.fp-reconcile-lines .fp-line{padding:7px 0}
+.fp-duplicate{transition:opacity .25s}
+.fp-advanced .fp-duplicate{opacity:.45;text-decoration:line-through}
+.fp-reconcile-total{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #e9ecef;padding:16px;color:#878f95;font-size:9px}
+.fp-reconcile-total strong{color:#38424a;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.fp-number-window{display:inline-block;height:1.2em;line-height:1.2;overflow:hidden;vertical-align:bottom}
+.fp-number-roll{display:flex;flex-direction:column;animation:fp-number .4s cubic-bezier(.2,.7,.2,1) both}
+.fp-number-roll>span{height:1.2em;flex:none;white-space:nowrap}
+@keyframes fp-number{to{transform:translateY(-50%)}}
+.fp-enter{animation:fp-open .25s cubic-bezier(.2,.7,.25,1) both}
+@keyframes fp-open{from{opacity:.45;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.fp-enter .fp-paper .fp-line{animation:fp-row .22s both}
+.fp-enter .fp-paper .fp-line:nth-child(3){animation-delay:.04s}
+.fp-enter .fp-paper .fp-line:nth-child(4){animation-delay:.08s}
+.fp-enter .fp-paper .fp-line:nth-child(5){animation-delay:.12s}
+.fp-enter .fp-paper .fp-line:nth-child(6){animation-delay:.16s}
+@keyframes fp-row{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.flow-stage.is-paused .fp-number-roll{animation-play-state:paused}
+.fp-static,.fp-static *{animation:none!important;transition:none!important}
+.fp-static .fp-number-roll{transform:translateY(-50%)}
+@media(max-width:1120px){.flow-preview{margin-left:33px}.fp-aircraft-slide{gap:10px}.fp-aircraft-copy>strong{font-size:13px}.fp-aircraft-price{font-size:18px}.fp-comparison{padding-left:16px;padding-right:16px}.fp-comparison strong{font-size:20px}}
+@media(max-width:560px){.flow-work-body{min-height:298px}.flow-preview{height:224px;margin-left:0}.flow-work-body.has-preview .flow-task-body{min-height:56px}.fp-paper{padding:10px 12px}.fp-document-head{font-size:11px}.fp-line{font-size:8px}.fp-document-route{font-size:7px}.fp-document-total>span:last-child{font-size:12px}.fp-aircraft-heading{font-size:8px}.fp-aircraft-heading>span:last-child{font-size:7px}.fp-aircraft-slide{padding-left:10px;padding-right:10px;gap:10px;grid-template-columns:50% minmax(0,1fr)}.fp-aircraft-photo{height:137px}.fp-aircraft-copy>strong{font-size:13px}.fp-aircraft-price{font-size:18px}.fp-aircraft-footer{padding-top:10px;font-size:7px}.fp-chat{font-size:10px}.fp-signature-name{font-size:17px}.fp-comparison strong{font-size:21px}.fp-document-stamp{font-size:7px}.fp-reconcile-total{padding-top:18px}.fp-approval-note{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.flow-preview,.flow-preview *{animation:none!important;transition:none!important}.fp-number-roll{transform:translateY(-50%)}}
+
+/* Keep every invoice line and its approval stamp inside the compact page. */
+.flow-preview[data-kind="invoice"],.flow-preview[data-kind="messages"]{height:auto;min-height:222px}
+.flow-preview[data-kind="invoice"] .fp-paper{padding-top:8px;padding-bottom:8px}
+.flow-preview[data-kind="invoice"] .fp-document-head{margin-bottom:5px}
+.flow-preview[data-kind="invoice"] .fp-document-route{padding-bottom:4px;margin-bottom:3px}
+.flow-preview[data-kind="invoice"] .fp-line{padding-top:3px;padding-bottom:3px}
+.flow-preview[data-kind="invoice"] .fp-document-total{margin-top:3px;padding-top:5px}

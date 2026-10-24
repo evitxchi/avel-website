@@ -2,6 +2,7 @@ import "./workflow-showcase.css"
 import { scrollToPosition } from "./smooth-scroll"
 import { createElement as createLucideElement, DollarSign, Users, Plane, FileText, Check, Pause, Play } from "lucide"
 
+import { updateWorkflowPreview } from "./workflow-previews"
 import { workflows } from "./workflow-data"
 import type { Brand, Task } from "./workflow-data"
 import { workflowSteps, taskState, stepDuration, workflowAtProgress } from "./workflow-state"
@@ -39,12 +40,16 @@ if (section && sequence && panel && tabs.length) {
     const flow = workflows[selected]
     const step = steps[phase]
     const complete = step.kind === "complete"
+    const preview = sequence.querySelector<HTMLElement>(".flow-preview")!
+    const hasPreview = updateWorkflowPreview(preview, flow.key, step, !reducedMotion.matches && !paused)
+    sequence.querySelector(".flow-work-body")!.classList.toggle("has-preview", hasPreview)
     const needsReview = step.kind === "review"
     sequence.querySelectorAll<HTMLElement>(".flow-task").forEach((row, index) => {
       const state = taskState(flow, step, index)
       row.classList.toggle("is-done", state.done)
       row.classList.toggle("is-working", state.active || state.review)
       row.classList.toggle("is-review", state.review)
+      row.classList.toggle("is-featured", index === (step.kind === "complete" ? flow.tasks.length - 1 : step.task))
       const status = row.querySelector<HTMLElement>(".flow-task-status")!
       if (status.textContent !== state.status) {
         status.textContent = state.status
@@ -96,7 +101,7 @@ if (section && sequence && panel && tabs.length) {
       tab.tabIndex = tabIndex === index ? 0 : -1
     })
     panel.setAttribute("aria-labelledby", tabs[index].id)
-    sequence.innerHTML = `<article class="flow-message flow-card"><div class="flow-message-top"><span class="flow-client"><img src="${flow.avatar || "/assets/personality-avatars/03-curious.png"}" alt="" /><span>${flow.source}</span></span>${brandImage(flow.sourceBrand)}</div><p>${flow.message}</p></article><article class="flow-workcard flow-card"><div class="flow-working-top"><img src="/assets/avel-mark.png" alt="" /><strong class="flow-working-heading">Avel working…</strong></div><p class="flow-insight"></p><div class="flow-tasks">${flow.tasks.map((task) => `<div class="flow-task"><span class="flow-task-marker">${spinner}<span class="flow-pending-ring"></span><span class="flow-check">${check}</span></span><div class="flow-task-body">${task.brand ? brandImage(task.brand) : taskIcon(task.icon)}<span class="flow-task-copy">${task.label}</span><span class="flow-task-status"></span></div></div>`).join("")}</div>${flow.review ? `<div class="flow-review" aria-hidden="true"><span><img src="/assets/personality-avatars/18-focused.png" alt="" /> ${flow.review.person}</span><span class="flow-review-action">${flow.review.request}</span></div>` : ""}</article><div class="flow-outcome flow-card"><span class="flow-outcome-check">${check}</span><span>${flow.result}</span></div>`
+    sequence.innerHTML = `<article class="flow-message flow-card"><div class="flow-message-top"><span class="flow-client"><img src="${flow.avatar || "/assets/personality-avatars/03-curious.png"}" alt="" /><span>${flow.source}</span></span>${brandImage(flow.sourceBrand)}</div><p>${flow.message}</p></article><article class="flow-workcard flow-card"><div class="flow-working-top"><img src="/assets/avel-mark.png" alt="" /><strong class="flow-working-heading">Avel working…</strong></div><p class="flow-insight"></p><div class="flow-work-body"><div class="flow-tasks">${flow.tasks.map((task) => `<div class="flow-task"><span class="flow-task-marker">${spinner}<span class="flow-pending-ring"></span><span class="flow-check">${check}</span></span><div class="flow-task-body">${task.brand ? brandImage(task.brand) : taskIcon(task.icon)}<span class="flow-task-copy">${task.label}</span><span class="flow-task-status"></span></div></div>`).join("")}</div><div class="flow-preview" hidden></div></div>${flow.review ? `<div class="flow-review" aria-hidden="true"><span><img src="/assets/personality-avatars/18-focused.png" alt="" /> ${flow.review.person}</span><span class="flow-review-action">${flow.review.request}</span></div>` : ""}</article><div class="flow-outcome flow-card"><span class="flow-outcome-check">${check}</span><span>${flow.result}</span></div>`
     sequence.classList.remove("flow-enter")
     void sequence.offsetWidth
     sequence.classList.add("flow-enter")
